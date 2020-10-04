@@ -3,6 +3,7 @@
 **Part 1.1 Architecture of 3 packages and 10 classes**
 
 Package: src.main.java.orga.joda.time.tz
+We chose this package because it contains the main entry point
 
 ![alt_text](src.main.java.orga.joda.time.tz.jpg "tz package")
 
