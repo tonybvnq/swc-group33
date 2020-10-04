@@ -21,7 +21,7 @@ Package: tz
 ZoneInfoCompiler.parseTime (Dean)
 If/else
 
-![alt_text](zoneInfoCompiler.parseTime.jpg "parseTime)
+![alt_text](zoneInfoCompiler.parseTime.jpg "parseTime")
 
 
 ZoneInfoCompiler.formatName (Jerome)
