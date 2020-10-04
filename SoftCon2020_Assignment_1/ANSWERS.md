@@ -12,6 +12,10 @@ Package: src.main.java.orga.joda.time.convert
 
 ![alt_text](ConverterPackage.jpg "convert package")
 
+Package: src.main.java.orga.joda.time.format
+
+![alt_text](format package.jpg "format package")
+
 
 
 **Part 1.2 Call Graph**
