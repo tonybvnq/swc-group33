@@ -9,8 +9,10 @@ We chose this package because it contains the main entry point
 
 
 Package: src.main.java.orga.joda.time.convert
+The class ConverterManager was chosen as an entry point because it initializes all the different converters types. These converters in turn are all based on the AbstractConverter class, which acts as a common basis.
 
 ![alt_text](ConverterPackage.jpg "convert package")
+
 
 Package: src.main.java.orga.joda.time.format
 
