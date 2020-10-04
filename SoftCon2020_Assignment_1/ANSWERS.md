@@ -15,7 +15,7 @@ Package: src.main.java.orga.joda.time.convert
 
 **Part 1.2 Call Graph**
 
-Call Graph
+Call Graph: If the class is not indicated, the call happens inside the same class
 
 ![alt text](Assignment1_CallGraph.jpg "call graph")
 
