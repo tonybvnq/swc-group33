@@ -21,7 +21,7 @@ Package: tz
 ZoneInfoCompiler.parseTime (Dean)
 If/else
 
-![image info](zoneInfoCompiler.parseTime.jpg "parseTime)
+![alt_text](zoneInfoCompiler.parseTime.jpg "parseTime)
 
 
 ZoneInfoCompiler.formatName (Jerome)
@@ -44,7 +44,7 @@ If/else
 
 ZoneInfoProvider.readZoneInfoMap (Dean)
 For-loop
-![image info](ZoneInfoProvider.readZoneInfoMap().jpg "readZoneInfoMap")
+![alt_text](ZoneInfoProvider.readZoneInfoMap().jpg "readZoneInfoMap")
 
 DateTimeZoneBuilder.isCachable (Tony)
 For-loop
