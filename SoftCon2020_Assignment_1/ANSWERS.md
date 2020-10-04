@@ -15,6 +15,7 @@ The class ConverterManager was chosen as an entry point because it initializes a
 
 
 Package: src.main.java.orga.joda.time.format
+This class is most likely the main entry point of the format package, because it has the most connections. 
 
 ![alt_text](FormatPackage.jpg "format package")
 
