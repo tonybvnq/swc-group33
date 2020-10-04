@@ -1,19 +1,18 @@
 **Part 1**
-Architecture of 3 packages and 10 classes
+**Part 1.1 Architecture of 3 packages and 10 classes**
 
 Package: src.main.java.orga.joda.time.tz
-
-We chose this one because it contains the main entry point
-
 ![alt_text](src.main.java.orga.joda.time.tz.jpg "tz package")
 
 
+Package: src.main.java.orga.joda.time.convert
+![alt_text](ConverterPackage.jpg "convert package")
 
-1. Image
-2. Image
 
-Method call graph: If the class is not indicated the call happens inside the same class.
 
+**Part 1.2 Call Graph**
+
+Call Graph
 ![alt text](Assignment1_CallGraph.jpg "call graph")
 
 
@@ -21,37 +20,33 @@ Method call graph: If the class is not indicated the call happens inside the sam
 
 **Part 2**
 
-ZoneInfoCompiler.parseTime (Dean)
+ZoneInfoCompiler.parseTime
 If/else
-
 ![alt_text](zoneInfoCompiler.parseTime.jpg "parseTime")
 
 
-ZoneInfoCompiler.formatName (Jerome)
+ZoneInfoCompiler.formatName
 If/else
-
 ![alt text](Method1_formatName.jpg "call graph")
 
 
-DateTimeZoneBuilder.writeMillis (Tony)
+DateTimeZoneBuilder.writeMillis
 If/else
-
 ![alt text](DateTimeZoneBuilder.writeMillis.jpg "writeMillis Graph")
 
 
-ZoneInfoProvider.openResource (Jerome)
+ZoneInfoProvider.openResource
 If/else
-
 ![alt text](Method2_openResource.jpg "call graph")
 
 
-ZoneInfoProvider.readZoneInfoMap (Dean)
+ZoneInfoProvider.readZoneInfoMap
 For-loop
 ![alt_text](ZoneInfoProvider.readZoneInfoMap().jpg "readZoneInfoMap")
 
-DateTimeZoneBuilder.isCachable (Tony)
-For-loop
 
+DateTimeZoneBuilder.isCachable
+For-loop
 ![alt text](DateTimeZoneBuilder.isCachable.jpg "isCachable Graph")
 
 
