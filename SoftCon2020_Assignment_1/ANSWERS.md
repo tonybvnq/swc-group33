@@ -21,6 +21,8 @@ Package: tz
 ZoneInfoCompiler.parseTime (Dean)
 If/else
 
+![image info](zoneInfoCompiler.parseTime.PNG "parseTime)
+
 
 ZoneInfoCompiler.formatName (Jerome)
 If/else
