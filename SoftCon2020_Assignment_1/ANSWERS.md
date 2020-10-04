@@ -14,7 +14,7 @@ Package: src.main.java.orga.joda.time.convert
 
 Package: src.main.java.orga.joda.time.format
 
-![alt_text](format package.jpg "format package")
+![alt_text](format_package.jpg "format package")
 
 
 
