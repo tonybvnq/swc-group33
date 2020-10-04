@@ -1,7 +1,7 @@
 **Part 1**
 Architecture of 3 packages and 10 classes
 
-Package: tz
+Package: src.main.java.orga.joda.time.tz
 
 ![alt_text](src.main.java.orga.joda.time.tz.jpg "tz package")
 
