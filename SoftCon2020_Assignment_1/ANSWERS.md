@@ -25,6 +25,8 @@ If/else
 ZoneInfoCompiler.formatName (Jerome)
 If/else
 
+![alt text](Method1_formatName.jpg "call graph")
+
 
 DateTimeZoneBuilder.writeMillis (Tony)
 If/else
@@ -34,6 +36,8 @@ If/else
 
 ZoneInfoProvider.openResource (Jerome)
 If/else
+
+![alt text](Method2_openResource.jpg "call graph")
 
 
 ZoneInfoProvider.readZoneInfoMap (Dean)
