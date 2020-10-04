@@ -12,6 +12,7 @@ We chose this one because it contains the main entry point
 1. Image
 2. Image
 
+Metod call graph: If the class is not indicated the call happens inside the same class.
 
 ![alt text](Assignment1_CallGraph.jpg "call graph")
 
