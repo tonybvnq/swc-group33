@@ -11,5 +11,9 @@ public interface Row {
 
     // replaces element in rowlist at input place with intput letter
     public  void setRowInstance(int place, String letter);
+
+
+    //Test in  row
+
 }
 
