@@ -8,6 +8,7 @@ public class Main {
             //Get status of specific row
             //Set ship in specific row
 
+
         //Create Ships
             //Get length of ship
             //Get letter of ship
@@ -20,6 +21,7 @@ public class Main {
         //Ask User for placement of each ship
             //Check if inside of board
 
+
         //Check ship placement
             //Check length of ship
             //Check status of specific rows
@@ -30,6 +32,7 @@ public class Main {
 
         //**Command line output**
         //Assemble rows and lists and print filled board
+        OutputAssembler.printBoard();
 
     }
 }
