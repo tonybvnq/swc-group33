@@ -26,4 +26,6 @@ public enum Ship {
         return amount;
     }
 
+    //Test comment
+
 }

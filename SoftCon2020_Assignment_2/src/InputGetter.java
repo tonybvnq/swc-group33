@@ -6,6 +6,8 @@ public class InputGetter {
         System.out.println("Please enter the position of your :");
 
         String returnedShipPlacement = myObj.nextLine();  // Read user input
+
+        //Test comment
     }
 
 }
