@@ -18,9 +18,9 @@ public class Main {
         NamedRow row8 = new NamedRow(8);
         NamedRow row9 = new NamedRow(9);
 
-/*        row5.setRowInstance('G', 'P');
-        row6.setRowInstance('G', 'P');
-        row7.setRowInstance('G', 'P');*/
+        row5.setRowInstance('F', 'P');
+        row5.setRowInstance('G', 'R');
+        row5.setRowInstance('F', 'P');
 
         //Get status of specific row
             //Set ship in specific row

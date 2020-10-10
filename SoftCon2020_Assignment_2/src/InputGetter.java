@@ -1,4 +1,5 @@
 import java.util.Scanner;
+/*
 
 public class InputGetter {
     public askPlacement() {
@@ -9,3 +10,4 @@ public class InputGetter {
     }
 
 }
+*/

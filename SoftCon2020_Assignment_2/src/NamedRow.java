@@ -3,7 +3,7 @@ import java.util.List;
 
 
 public  class NamedRow implements Row {
-    public int rowNumber;
+    private int rowNumber;
 
     public NamedRow(int rowNumber){
         setRowNumber(rowNumber);
@@ -48,18 +48,29 @@ public  class NamedRow implements Row {
         if (coordinate == 'I'){ place = 9;}
         if (coordinate == 'L'){ place = 10;}
 
-        // Check for valid x coordinate, pro call testing function
-        if (place == 0) {System.out.println("INVALID X COORDINATE!!");}
+        // testing for valid x coordinate
+        Testing.testXCoordinate(place, coordinate);
 
-        // logic to reach right index
+        // logic to get right index
         int index = 1 + ((place -1) * 3);
 
+        // testing if slots are occupied
+        try {
+            Testing.testIfOccupied(this.listRepr[index]);
+        } catch (Testing.OccupiedException e) {
+            e.printStackTrace();
+            // recall input method!!
+        }
+
+        // set shipletter into row
         this.listRepr[index] = shipletter;
         this.stringRepr = String.valueOf(this.listRepr);
     };
 
     // creates the valid output row and prints it
     public void printRow(){
+
+
         String outputReprs = String.format("[%d]|%s", this.rowNumber, stringRepr);
 
         System.out.println(outputReprs);}
