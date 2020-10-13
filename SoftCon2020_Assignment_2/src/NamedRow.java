@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.List;
 
+// PROBABLY DELETE ROW INTERFACE
 
 public  class NamedRow implements Row {
     private int rowNumber;
@@ -33,7 +34,7 @@ public  class NamedRow implements Row {
     }
 
     // replaces element in rowlist when ship is placed. Takes x coordinate as letter and shipletter as arguments
-    public void setRowInstance(char coordinate, char shipletter){
+    public void drawShipLetter(char coordinate, char shipletter){
 
         int place = 0;
 

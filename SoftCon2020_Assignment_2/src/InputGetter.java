@@ -1,5 +1,6 @@
 import java.util.Scanner;
 /*
+calls positioning class
 
 public class InputGetter {
     public askPlacement() {

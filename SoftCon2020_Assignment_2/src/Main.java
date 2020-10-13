@@ -17,10 +17,11 @@ public class Main {
         NamedRow row7 = new NamedRow(7);
         NamedRow row8 = new NamedRow(8);
         NamedRow row9 = new NamedRow(9);
+        Row[] rowList = new Row[]{row1, row2, row3, row4, row5, row6, row7, row8, row9};
 
-        row5.setRowInstance('F', 'P');
-        row5.setRowInstance('G', 'R');
-        row5.setRowInstance('F', 'P');
+    /*    row5.drawShipLetter('F', 'P');
+        row5.drawShipLetter('G', 'R');
+        row5.drawShipLetter('F', 'P');*/
 
         //Get status of specific row
             //Set ship in specific row

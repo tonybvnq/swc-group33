@@ -15,9 +15,10 @@ public interface Row {
     public  void setRowNumber(int number);
 
     // replaces element in rowlist at input place with intput letter
-    public  void setRowInstance(char coordinate, char shipletter);
+    public  void drawShipLetter(char coordinate, char shipletter);
 
     public void printRow();
+
 }
 
 
