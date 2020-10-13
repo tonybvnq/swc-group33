@@ -17,11 +17,12 @@ public class Main {
         NamedRow row7 = new NamedRow(7);
         NamedRow row8 = new NamedRow(8);
         NamedRow row9 = new NamedRow(9);
+
         Row[] rowList = new Row[]{row1, row2, row3, row4, row5, row6, row7, row8, row9};
 
     /*    row5.drawShipLetter('F', 'P');
         row5.drawShipLetter('G', 'R');
-        row5.drawShipLetter('F', 'P');*/
+        row5.drawShipLetter('H', 'P');*/
 
         //Get status of specific row
             //Set ship in specific row
@@ -47,8 +48,8 @@ public class Main {
         //**Command line output**
         //Assemble rows and lists and print filled board
 
-        List<NamedRow> outputRows =  Arrays.asList(row1,row2,row3, row4, row5, row6, row7, row8, row9);
-        OutputAssembler board = new OutputAssembler(outputRows);
+
+        OutputAssembler board = new OutputAssembler(rowList);
         board.printBoard();
 
 
