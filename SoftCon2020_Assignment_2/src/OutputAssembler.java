@@ -3,9 +3,9 @@ import java.util.*;
 
 
 public class OutputAssembler {
-    Row[] rowList;
+    NamedRow[] rowList;
 
-    public OutputAssembler(Row[] inputrows){
+    public OutputAssembler(NamedRow[] inputrows){
         rowList = inputrows;
     }
 
@@ -13,7 +13,7 @@ public class OutputAssembler {
     public  void printBoard() {
         System.out.println("   |[A][B][C][D][E][F][G][H][I][L]");
         System.out.println("---|------------------------------");
-        for (Row row : this.rowList){
+        for (NamedRow row : this.rowList){
             row.printRow();
 
         //for (int i = 0; i < 9; i++) {
