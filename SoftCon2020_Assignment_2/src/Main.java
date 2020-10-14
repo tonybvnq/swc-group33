@@ -5,7 +5,7 @@ public class Main {
         System.out.println("Welcome to Battleship!!");
 
         //Test Input getter
-        InputGetter.askPlacement();
+        InputGetter.askPlacement("Battleship");
 
         //**Initialize**
         //Create and maintain rows with Lists

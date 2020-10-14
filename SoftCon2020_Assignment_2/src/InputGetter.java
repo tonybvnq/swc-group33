@@ -4,13 +4,14 @@ import java.util.Arrays;
 //calls positioning class
 
 public class InputGetter {
-    public static String[] askPlacement() {
+    public static String[] askPlacement(String shipName) {
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Please enter the position of your :");
-
+        String question = String.format("Please enter the position of your %s:", shipName); //Create question
+        System.out.println(question); //Print question
         String returnedShipPlacement = myObj.nextLine();  // Read user input
+        String[] listOfPlaces = returnedShipPlacement.split(" "); //Separate user input into array
 
-        String[] listOfPlaces = returnedShipPlacement.split(" ");
+        //Test
         System.out.println(Arrays.toString(listOfPlaces));
 
         return listOfPlaces;
