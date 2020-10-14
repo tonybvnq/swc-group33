@@ -60,6 +60,8 @@ public class Main {
         OutputAssembler board = new OutputAssembler(rowList);
         board.printBoard();
 
+        //Test
+
 
 
     }
