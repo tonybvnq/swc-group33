@@ -42,7 +42,7 @@ public class Main {
         //**User Input**
 
         //Test Input getter
-        InputGetter.askPlacement("Battleship");
+        InputGetter.askPlacement(battleship);
 
         //x10
         //Ask User for placement of each ship
