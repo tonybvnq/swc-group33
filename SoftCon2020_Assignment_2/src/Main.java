@@ -4,7 +4,6 @@ public class Main {
     public static void main(String[] args) throws Testing.ShipAmountException {
         System.out.println("Welcome to Battleship!!");
 
-
         //**Initialize**
         //Create and maintain rows with Lists
         // create ships as objects
@@ -39,7 +38,12 @@ public class Main {
             //Get amount of ship type
             //Get list of all ships
 
+
         //**User Input**
+
+        //Test Input getter
+        InputGetter.askPlacement("Battleship");
+
         //x10
         //Ask User for placement of each ship
             //Check if inside of board
