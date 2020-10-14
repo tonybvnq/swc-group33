@@ -1,13 +1,13 @@
 import java.util.*;
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Testing.ShipAmountException {
         System.out.println("Welcome to Battleship!!");
 
 
         //**Initialize**
         //Create and maintain rows with Lists
-        // create all rows empty -> Are we supposed to use setters here because encapsulation stuff??
+        // create ships as objects
         NamedRow row1 = new NamedRow(1);
         NamedRow row2 = new NamedRow(2);
         NamedRow row3 = new NamedRow(3);
@@ -17,12 +17,18 @@ public class Main {
         NamedRow row7 = new NamedRow(7);
         NamedRow row8 = new NamedRow(8);
         NamedRow row9 = new NamedRow(9);
+        Carrier carriership = new Carrier();
+        Battleship battleship = new Battleship();
+        Submarine submarine = new Submarine();
+        PatrolBoat patrolBoat = new PatrolBoat();
 
-        Row[] rowList = new Row[]{row1, row2, row3, row4, row5, row6, row7, row8, row9};
 
-    /*    row5.drawShipLetter('F', 'P');
-        row5.drawShipLetter('G', 'R');
-        row5.drawShipLetter('H', 'P');*/
+
+        NamedRow[] rowList = new NamedRow[]{row1, row2, row3, row4, row5, row6, row7, row8, row9};
+
+   carriership.setShip("C3", "Q3", rowList );
+   submarine.setShip("D6", "D13", rowList );
+
 
         //Get status of specific row
             //Set ship in specific row
@@ -47,8 +53,6 @@ public class Main {
 
         //**Command line output**
         //Assemble rows and lists and print filled board
-
-
         OutputAssembler board = new OutputAssembler(rowList);
         board.printBoard();
 

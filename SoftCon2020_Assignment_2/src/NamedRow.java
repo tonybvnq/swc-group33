@@ -3,7 +3,7 @@ import java.util.List;
 
 // PROBABLY DELETE ROW INTERFACE
 
-public  class NamedRow implements Row {
+public  class NamedRow {
     private int rowNumber;
 
     public NamedRow(int rowNumber){
