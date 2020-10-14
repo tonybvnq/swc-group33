@@ -1,7 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.Scanner;
 import java.util.Arrays;
-//calls positioning class
+
 
 public class InputGetter {
     public static String[] askPlacement(String shipName) {
