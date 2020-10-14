@@ -49,20 +49,17 @@ public  class NamedRow {
         if (coordinate == 'I'){ place = 9;}
         if (coordinate == 'L'){ place = 10;}
 
-        // testing for valid x coordinate
-        Testing.testXCoordinate(place, coordinate);
 
         // logic to get right index
         int index = 1 + ((place -1) * 3);
 
         // testing if slots are occupied
-        try {
-            Testing.testIfOccupied(this.listRepr[index]);
-        } catch (Testing.OccupiedException e) {
-            e.printStackTrace();
-            // recall input method!!
-        }
-
+      /*  String freeslot= " ";
+        char freechar = freeslot.charAt(0);
+        if (this.listRepr[index] != freechar){
+            System.out.println("There is alreasy a ship at this slot!");
+            return;}
+*/
         // set shipletter into row
         this.listRepr[index] = shipletter;
         this.stringRepr = String.valueOf(this.listRepr);

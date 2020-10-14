@@ -12,7 +12,6 @@ public class InputGetter {
         String[] listOfPlaces = returnedShipPlacement.split(" "); //Separate user input into array
 
         //Test
-        System.out.println(Arrays.toString(listOfPlaces));
 
         return listOfPlaces;
     }
