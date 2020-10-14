@@ -4,6 +4,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to Battleship!!");
 
+        //Test Input getter
+        InputGetter.askPlacement();
 
         //**Initialize**
         //Create and maintain rows with Lists
