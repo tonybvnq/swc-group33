@@ -47,7 +47,7 @@ public  class NamedRow {
         if (coordinate == 'G'){ place = 7;}
         if (coordinate == 'H'){ place = 8;}
         if (coordinate == 'I'){ place = 9;}
-        if (coordinate == 'L'){ place = 10;}
+        if (coordinate == 'J'){ place = 10;}
 
 
         // logic to get right index
