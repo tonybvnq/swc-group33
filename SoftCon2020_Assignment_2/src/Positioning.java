@@ -21,6 +21,11 @@ public class Positioning {
         if (input1.charAt(0) == input2.charAt(0)) {
             int dex = numOfInput1;
             while( dex <= numOfInput2){
+                // add overwritten field to list of overwritten fields
+                String field = new StringBuilder().append(input1.charAt(0)).append(dex).toString();
+                if (Main.isInOccupiedSlots(field)){ System.out.println("There is alreasy a ship at this slot!"); break;};
+                Main.setOccupiedslots(field);
+
                 rowList[dex-1].drawShipLetter(input1.charAt(0), shipletter);
                 dex ++;
 
@@ -31,6 +36,11 @@ public class Positioning {
             int dex2 = ycoordinates.indexOf(input2.charAt(0));
 
             while (dex1 <= dex2){
+                // add overwritten field to list of overwritten fields
+                String field = new StringBuilder().append(ycoordinates.charAt(dex1)).append(numOfInput1).toString();
+                if (Main.isInOccupiedSlots(field)){ System.out.println("There is alreasy a ship at this slot!"); break;};
+                Main.setOccupiedslots(field);
+
                 rowList[numOfInput1-1].drawShipLetter(ycoordinates.charAt(dex1), shipletter);
                 dex1 ++;
             }

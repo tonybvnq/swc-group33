@@ -1,7 +1,23 @@
 import java.util.*;
 public class Main {
 
-    public static void main(String[] args) throws Testing.ShipAmountException {
+    // stores the occupied slots of the board
+    private static List<String> occupiedslots = new ArrayList<String>();
+
+    public static Boolean isInOccupiedSlots(String coordinate){
+        return occupiedslots.contains(coordinate);
+    };
+
+    public static List<String> getOccupiedSlots(){
+        return occupiedslots;
+    };
+
+
+    public static void setOccupiedslots(String coordinate){
+        occupiedslots.add(coordinate);
+    };
+
+    public static void main(String[] args)  {
         System.out.println("Welcome to Battleship!!");
 
         //**Initialize**
@@ -22,35 +38,29 @@ public class Main {
         PatrolBoat patrolBoat = new PatrolBoat();
 
 
-
+        // create iterable lists for rows and ships
         NamedRow[] rowList = new NamedRow[]{row1, row2, row3, row4, row5, row6, row7, row8, row9};
-
-   carriership.setShip("C3", "Q3", rowList );
-   submarine.setShip("D6", "D13", rowList );
+        Ship[] shipList = new Ship[]{carriership, battleship, submarine, patrolBoat};
 
 
-        //Get status of specific row
-            //Set ship in specific row
+        // iterate through ships
+        // asks for input and assigns to positioning on board as long as amount of certain ship doesnt reach 0
+        // checks if slots are occupied
+        // repeat for every ship
+        for (Ship e : shipList){
+            while (e.getShipAmount() > 0){
+                String[] coordinates = InputGetter.askPlacement(e.getShipname());
+                String startcoordinate = coordinates[0];
+                String endcoordinate = coordinates[1];
+              /*  if (isInOccupiedSlots(startcoordinate)|| isInOccupiedSlots(endcoordinate)) {
+                    System.out.println("There is alreasy a ship at this slot!");
+                }else {
+                   *//* occupiedslots.add(startcoordinate);
+                    occupiedslots.add(endcoordinate);*/
+                    e.setShip(startcoordinate, endcoordinate, rowList);
 
-        //Create Ships
-            //Get length of ship
-            //Get letter of ship
-            //Get amount of ship type
-            //Get list of all ships
 
-
-        //**User Input**
-
-        //Test Input getter
-        InputGetter.askPlacement("Battleship");
-
-        //x10
-        //Ask User for placement of each ship
-            //Check if inside of board
-
-        //Check ship placement
-            //Check length of ship
-            //Check status of specific rows
+    }};
 
         //Place ship in rows(s)
             //Set letter of ship in row(s))
@@ -62,6 +72,6 @@ public class Main {
 
 
 
-    }
-}
+    }}
+
 

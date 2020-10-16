@@ -1,8 +1,40 @@
 abstract class Ship implements ShipInterface{
-    public int length;
-    public int amount;
-    public char shipletter;
+    private String shipname;
+    private int length;
+    private int amount;
+    private char shipletter;
 
+    public void setShipName(String name){
+        this.shipname = name;
+    };
+
+    public void setShipLength(int length){
+        this.length = length;
+    };
+
+    public  void setShipAmount(int amount){
+        this.amount = amount;
+    };
+
+    public void setShipLetter(char letter){
+        this.shipletter=letter;
+    };
+
+    public String getShipname(){
+        return this.shipname;
+    };
+
+    public int getShipLength(){
+        return this.length;
+    };
+
+    public  int getShipAmount(){
+        return this.amount;
+    };
+
+    public char getShipLetter(){
+        return this.shipletter;
+    };
 
 
     public void setShip(String coordinate1, String coordinate2, NamedRow[] rowList){
@@ -14,36 +46,41 @@ abstract class Ship implements ShipInterface{
         }
         rowList = Positioning.position(coordinate1, coordinate2, this.shipletter, rowList);
 
-        amount = amount -1;
+        this.setShipAmount(this.getShipAmount()-1);
+
     }}
 
         class Carrier extends Ship{
     public Carrier(){
-        this.length = 6;
-        this.amount = 1;
-        this.shipletter = 'C';
+        setShipName("Carrier");
+        setShipLength(6);
+        setShipAmount(1);
+        setShipLetter('C');
     }
         }
 
         class Battleship extends Ship {
     public Battleship() {
-                this.length = 4;
-                this.amount = 2;
-                this.shipletter = 'B';
+        setShipName("Battleship");
+        setShipLength(4);
+        setShipAmount(2);
+        setShipLetter('B');
             }
         }
         class Submarine extends Ship{
     public Submarine(){
-        this.length = 3;
-        this.amount = 3;
-        this.shipletter = 'S';
+        setShipName("Submarine");
+        setShipLength(3);
+        setShipAmount(3);
+        setShipLetter('S');;
     }
 }
 
         class PatrolBoat extends Ship{
     public PatrolBoat(){
-        this.length = 2;
-        this.amount = 4;
-        this.shipletter = 'P';
+        setShipName("Patrol boat");
+        setShipLength(2);
+        setShipAmount(4);
+        setShipLetter('P');
     }
 }
