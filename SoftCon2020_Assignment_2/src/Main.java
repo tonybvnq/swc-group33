@@ -1,6 +1,21 @@
 import java.util.*;
 public class Main {
-    static List<String> inputs = new ArrayList<String>();
+
+    // stores the occupied slots of the board
+    private static List<String> occupiedslots = new ArrayList<String>();
+
+    public static Boolean isInOccupiedSlots(String coordinate){
+        return occupiedslots.contains(coordinate);
+    };
+
+    public static List<String> getOccupiedSlots(){
+        return occupiedslots;
+    };
+
+
+    public static void setOccupiedslots(String coordinate){
+        occupiedslots.add(coordinate);
+    };
 
     public static void main(String[] args)  {
         System.out.println("Welcome to Battleship!!");
@@ -23,25 +38,26 @@ public class Main {
         PatrolBoat patrolBoat = new PatrolBoat();
 
 
-        // create iterable lists for rows and ships and inputs
+        // create iterable lists for rows and ships
         NamedRow[] rowList = new NamedRow[]{row1, row2, row3, row4, row5, row6, row7, row8, row9};
         Ship[] shipList = new Ship[]{carriership, battleship, submarine, patrolBoat};
 
 
         // iterate through ships
         // asks for input and assigns to positioning on board as long as amount of certain ship doesnt reach 0
+        // checks if slots are occupied
         // repeat for every ship
         for (Ship e : shipList){
             while (e.getShipAmount() > 0){
                 String[] coordinates = InputGetter.askPlacement(e.getShipname());
                 String startcoordinate = coordinates[0];
                 String endcoordinate = coordinates[1];
-                if (inputs.contains(startcoordinate) || inputs.contains(endcoordinate)) {
+              /*  if (isInOccupiedSlots(startcoordinate)|| isInOccupiedSlots(endcoordinate)) {
                     System.out.println("There is alreasy a ship at this slot!");
                 }else {
-                    inputs.add(startcoordinate);
-                    inputs.add(endcoordinate);
-                    e.setShip(startcoordinate, endcoordinate, rowList);}
+                   *//* occupiedslots.add(startcoordinate);
+                    occupiedslots.add(endcoordinate);*/
+                    e.setShip(startcoordinate, endcoordinate, rowList);
 
 
     }};
@@ -56,6 +72,6 @@ public class Main {
 
 
 
-    }
-}
+    }}
+
 
