@@ -61,33 +61,15 @@ public class Main {
                 String[] coordinates = InputGetter.askPlacement(e);
                 String startcoordinate = coordinates[0];
                 String endcoordinate = coordinates[1];
-                    e.setShip(startcoordinate, endcoordinate, rowList);
+                e.setShip(startcoordinate, endcoordinate, rowList);
 
 
-<<<<<<< HEAD
-        //Test Input getter
-        InputGetter.askPlacement(battleship);
-
-        //x10
-        //Ask User for placement of each ship
-            //Check if inside of board
-
-        //Check ship placement
-            //Check length of ship
-            //Check status of specific rows
-
-        //Place ship in rows(s)
-            //Set letter of ship in row(s))
-=======
-    }};
->>>>>>> ebd86eedaa604bc5fe17acab9e1fb61a64269532
+            }};
 
         //**Command line output**
         //Assemble rows and lists and print filled board
         OutputAssembler board = new OutputAssembler(rowList);
         board.printBoard();
-
-        //Test
 
 
 
