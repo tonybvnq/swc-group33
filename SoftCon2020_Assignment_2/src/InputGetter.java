@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -10,14 +11,14 @@ public class InputGetter {
         while (!inputIsValid) {
             //get input
             Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-            String question = String.format("Please enter the position of your %s:", ship.shipletter); //Create question
+            String question = String.format("Please enter the position of your %s:", ship.getShipname()); //Create question
             System.out.println(question); //Print question
             String returnedShipPlacement = myObj.nextLine();  // Read user input
             listOfPlaces = returnedShipPlacement.split(" "); //Separate user input into array
 
             String firstEntry = listOfPlaces[0];
             String secondEntry = listOfPlaces[1];
-            String ycoordinates = "ABCDEFGHIL";
+            String ycoordinates = "ABCDEFGHIJ";
             String xcoordinates = "0123456789";
             char firstEntryx = firstEntry.charAt(0);
             char secondEntryx = secondEntry.charAt(0);
@@ -36,19 +37,19 @@ public class InputGetter {
                 inputIsValid = true;
             }
             if (!inputIsValid) {
-                System.out.println("Chosen coordinates are outside of board!!! Please try again");
+                System.out.println("Specified input is invalid");
             }
             //Test whether length is correct
-            int length = ship.length;
+            int length = ship.getShipLength();
 
-            if ((firstEntryx == secondEntryx && (numE2y - numE1y) == length)
-                    || (firstEntryy == secondEntryy && (numE2x - numE1x) == length)) {
+            if ((firstEntryx == secondEntryx && (numE2y - numE1y + 1) == length)
+                    || (firstEntryy == secondEntryy && (numE2x - numE1x + 1) == length)) {
                 inputIsValid = true;
             } else {
                 inputIsValid = false;
             }
             if (!inputIsValid) {
-                System.out.println("Coordinates do not fit length of ship!!! Please try again");
+                System.out.println("Specified input is invalid");
             }
 
         }

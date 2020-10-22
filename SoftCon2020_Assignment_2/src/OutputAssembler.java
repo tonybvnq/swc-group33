@@ -11,7 +11,7 @@ public class OutputAssembler {
 
     // removed static keyword
     public  void printBoard() {
-        System.out.println("   |[A][B][C][D][E][F][G][H][I][L]");
+        System.out.println("   |[A][B][C][D][E][F][G][H][I][J]");
         System.out.println("---|------------------------------");
         for (NamedRow row : this.rowList){
             row.printRow();
