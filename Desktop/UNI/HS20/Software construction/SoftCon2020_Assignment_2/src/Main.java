@@ -63,6 +63,9 @@ public class Main {
                 String endcoordinate = coordinates[1];
                     e.setShip(startcoordinate, endcoordinate, player1_rowList);
 
+    }};
+
+
 
         // FIGHTING PHASE
 
@@ -71,15 +74,13 @@ public class Main {
         int computerplayer_count = player1_shipList.length;
         int destroyedshipsyplayer = 0;
 
-
-
-
-    }};
         //**Command line output**
         //Assemble rows and lists and print filled board
-        OutputAssembler board = new OutputAssembler(player1_rowList);
-        board.printBoard();
-
+        System.out.println("Your board");
+        OutputAssembler.printBoard(player1_rowList);
+        System.out.println("Your oponents board");
+        OutputAssembler.printBoard(computerplayer_rowList);
+        OutputAssembler.printScoreboard(player_count, destroyedshipsyplayer);
 
 
     }}

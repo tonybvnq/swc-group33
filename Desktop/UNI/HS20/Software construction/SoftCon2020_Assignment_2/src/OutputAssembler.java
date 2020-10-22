@@ -2,23 +2,16 @@ import javax.naming.Name;
 import java.util.*;
 
 
-public class OutputAssembler {
-    NamedRow[] rowList;
-    int remainingships;
-    int destroyedships;
-
-    public OutputAssembler(NamedRow[] inputrows){
-        rowList = inputrows;
-    }
+public abstract class  OutputAssembler {
 
     // removed static keyword
-    public  void printBoard() {
+    public static  void printBoard(NamedRow[] rowList) {
         System.out.println("   |[A][B][C][D][E][F][G][H][I][J]");
         System.out.println("---|------------------------------");
-        for (NamedRow row : this.rowList){
+        for (NamedRow row : rowList){
             row.printRow(); } }
 
-    public void printScoreboard(){
+    public static void printScoreboard(int remainingships, int destroyedships ){
         System.out.println("Your scoureboard: ");
         System.out.println(" -  Player remaining boats: %d", remainingships);
         System.out.println(" -  Enemy boats destroyed: %d", destroyedships);
