@@ -1,21 +1,32 @@
-public class ComputerPlayerInitialization {
+import java.util.ArrayList;
+import java.util.List;
 
+public class ComputerPlayerInitialization extends Initialization{
+
+    // SINGLETON
     // COMPUTER INITIALIZATION SHOULD REMAIN THE ONLY OF ITS KIND, WE CREATE ONE AND NO MORE, IT REMAINS A SINGLETON
 
     private static ComputerPlayerInitialization computerinit;
 
-    private ComputerPlayerInitialization(){};
+    private static List<String> computerplayer_occupiedslots = new ArrayList<String>();
 
+    private ComputerPlayerInitialization(){
+        createPlayersOccupiedSlotsList(computerplayer_occupiedslots);
+        setRowList(createRowList());
+        setShiplist(createShipList());
+    };
+
+
+    // CREATES THE ONLY SINGELTON OF THIS OBJECT
     public static ComputerPlayerInitialization getInitialization(){
         if (computerinit == null){
-           ComputerPlayerInitialization computerinit = new ComputerPlayerInitialization();
+           return new ComputerPlayerInitialization();
         }
         return computerinit;
     }
 
-
-    public NamedRow[] returnRowList(){
-        //Create and maintain rows with Lists
+    // FUNCTION TO INITIALLY CREATE THE PLAYERS BATTLEFIELD; THIS IS NEVER CALLED AGAIN BEFORE GAME IS OVER
+    public NamedRow[] createRowList(){
         NamedRow computerplayer_row0 = new NamedRow(0);
         NamedRow computerplayer_row1 = new NamedRow(1);
         NamedRow computerplayer_row2 = new NamedRow(2);
@@ -28,13 +39,11 @@ public class ComputerPlayerInitialization {
         NamedRow computerplayer_row9 = new NamedRow(9);
 
         // create iterable lists
-        NamedRow[] rowList = new NamedRow[]{computerplayer_row0, computerplayer_row1, computerplayer_row2, computerplayer_row3, computerplayer_row4,
-                computerplayer_row5, computerplayer_row6, computerplayer_row7, computerplayer_row8, computerplayer_row9};
-        return rowList;};
+        return new NamedRow[]{computerplayer_row0, computerplayer_row1, computerplayer_row2, computerplayer_row3, computerplayer_row4,
+                computerplayer_row5, computerplayer_row6, computerplayer_row7, computerplayer_row8, computerplayer_row9};};
 
-
-    public Ship[] returnShipList(){
-        // create ships as objects
+    // FUNCTION TO INITIALLY CREATE THE PLAYERS SHIPS; THIS IS NEVER CALLED AGAIN BEFORE GAME IS OVER
+    public Ship[] createShipList(){
         Carrier computerplayer_carriership = new Carrier();
 
         Battleship computerplayer_battleship1 = new Battleship(); computerplayer_battleship1.setShipName("Battleship 1");
@@ -50,9 +59,8 @@ public class ComputerPlayerInitialization {
         PatrolBoat computerplayer_patrolBoat4 = new PatrolBoat(); computerplayer_patrolBoat4.setShipName("PatrolBoat 4");
 
         // cerate list with ships
-        Ship[] shipList = new Ship[]{computerplayer_carriership, computerplayer_battleship1, computerplayer_battleship2,
+        return new Ship[]{computerplayer_carriership, computerplayer_battleship1, computerplayer_battleship2,
                 computerplayer_submarine1, computerplayer_submarine2,
                 computerplayer_submarine3, computerplayer_patrolBoat1, computerplayer_patrolBoat2,
-                computerplayer_patrolBoat3, computerplayer_patrolBoat4};
-        return shipList;}
+                computerplayer_patrolBoat3, computerplayer_patrolBoat4};}
 }

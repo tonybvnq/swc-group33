@@ -46,7 +46,7 @@ abstract class Ship implements ShipInterface{
     public ArrayList<String> getShipCoordinates(){return this.shipcoordinates;};
 
 
-    public void setShip(String coordinate1, String coordinate2, NamedRow[] rowList){
+    public void setShip(Initialization player, String coordinate1, String coordinate2, NamedRow[] rowList){
 
         // check if there are more ships of this type to set
         if (this.amount == 0){
@@ -56,7 +56,7 @@ abstract class Ship implements ShipInterface{
 
         // add coordinates of ship to the shipobject and place it in field
         this.setShipCoordinates(coordinate1+coordinate2);
-        rowList = Positioning.position(coordinate1, coordinate2, this.shipletter, rowList);
+        rowList = Positioning.position(player, coordinate1, coordinate2, this.shipletter, rowList);
 
         this.setShipAmount(this.getShipAmount()-1);
 

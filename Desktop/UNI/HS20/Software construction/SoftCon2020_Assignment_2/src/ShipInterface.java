@@ -23,7 +23,7 @@ public interface ShipInterface {
     public ArrayList<String> getShipCoordinates();
 
     //  checks if amount is not 0,  calles the positioning method and lowers the amount of ships by 1
-    public void setShip(String coordinate1, String coordinate2, NamedRow[] rowList);
+    public void setShip(Initialization player, String coordinate1, String coordinate2, NamedRow[] rowList);
 
     };
 

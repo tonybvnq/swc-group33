@@ -1,9 +1,9 @@
 import java.util.List;
 
 public class Positioning {
-        // takes the user input, the letter og the ship and all the rows as input
+        // takes the user input, the letter of the ship and all the rows as input
         // gives back the changed rows
-    public static NamedRow[] position(String input1, String input2, char shipletter, NamedRow[] rowList){
+    public static NamedRow[] position(Initialization player, String input1, String input2, char shipletter, NamedRow[] rowList){
 
 
         // if input goes from right to left or down to up, swap inputs
@@ -24,8 +24,8 @@ public class Positioning {
             while( dex <= numOfInput2){
                 // check if field is in occupedfields, if not, add to list and write in row
                 String field = new StringBuilder().append(input1.charAt(0)).append(dex).toString();
-                if (Main.isInOccupiedSlots(field)){ System.out.println("There is already a ship at this slot!"); break;};
-                Main.setOccupiedslots(field);
+                if (player.isInOccupiedSlots(field)){ System.out.println("There is already a ship at this slot!"); break;};
+                player.setOccupiedslots(field);
 
 
                 // draws shipletter into row
@@ -41,8 +41,8 @@ public class Positioning {
             while (dex1 <= dex2){
                 // check if field is in occupedfields, if not, add to list and write in row
                 String field = new StringBuilder().append(ycoordinates.charAt(dex1)).append(numOfInput1).toString();
-                if (Main.isInOccupiedSlots(field)){ System.out.println("There is already a ship at this slot!"); break;};
-                Main.setOccupiedslots(field);
+                if (player.isInOccupiedSlots(field)){ System.out.println("There is already a ship at this slot!"); break;};
+                player.setOccupiedslots(field);
 
                 // draws shipletter into row
                 rowList[numOfInput1].drawShipLetter(ycoordinates.charAt(dex1), shipletter);

@@ -66,4 +66,31 @@ public  class NamedRow {
         String outputReprs = String.format("[%d]|%s", this.rowNumber, stringRepr);
 
         System.out.println(outputReprs);}
+
+
+    public void drawHitLetter(char coordinate, boolean isHit){
+        int place = 0;
+
+        if (coordinate == 'A'){ place = 1;}
+        if (coordinate == 'B'){ place = 2;}
+        if (coordinate == 'C'){ place = 3;}
+        if (coordinate == 'D'){ place = 4;}
+        if (coordinate == 'E'){ place = 5;}
+        if (coordinate == 'F'){ place = 6;}
+        if (coordinate == 'G'){ place = 7;}
+        if (coordinate == 'H'){ place = 8;}
+        if (coordinate == 'I'){ place = 9;}
+        if (coordinate == 'J'){ place = 10;}
+        int index = 1 + ((place -1) * 3);
+
+        if (isHit) {
+            char boat_type = this.listRepr[index]; // To later identify it boat is completely destroyed
+            this.listRepr[index] = 'X';
+            this.stringRepr = String.valueOf(this.listRepr);
+        }
+        else {
+            this.listRepr[index] = 'O';
+            this.stringRepr = String.valueOf(this.listRepr);
+        }
+    }
     }

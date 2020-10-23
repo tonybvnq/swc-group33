@@ -13,8 +13,8 @@ public abstract class  OutputAssembler {
 
     public static void printScoreboard(int remainingships, int destroyedships ){
         System.out.println("Your scoureboard: ");
-        System.out.println(" -  Player remaining boats: %d", remainingships);
-        System.out.println(" -  Enemy boats destroyed: %d", destroyedships);
+        System.out.println(" -  Player remaining boats:" + remainingships);
+        System.out.println(" -  Enemy boats destroyed:" + destroyedships);
 
     };}
 

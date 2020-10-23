@@ -8,32 +8,18 @@ public class Main {
 
 
 
-    // stores the occupied slots of the board
-    private static List<String> occupiedslots = new ArrayList<String>();
-
-    public static Boolean isInOccupiedSlots(String coordinate){
-        return occupiedslots.contains(coordinate);
-    };
-
-    public static List<String> getOccupiedSlots(){
-        return occupiedslots;
-    };
-
-
-    public static void setOccupiedslots(String coordinate){
-        occupiedslots.add(coordinate);
-    };
-
     public static void main(String[] args)  {
         System.out.println("Welcome to Battleship!!");
 
         //**Initialize**
 
-        // COMPUTER PLAYER INITIALIZATION & POSITIONING
+        // COMPUTER PLAYER INITIALIZATION
 
         ComputerPlayerInitialization computerinit1 = ComputerPlayerInitialization.getInitialization();
-        NamedRow[] computerplayer_rowList = computerinit1.returnRowList();
-        Ship[] computerplayer_shipList = computerinit1.returnShipList();
+
+        // FIRST INITALIZATION OF LISTS
+        NamedRow[] computerplayer_rowList = computerinit1.getRowList();
+        Ship[] computerplayer_shipList = computerinit1.getShipList();
 
         // RANDOM POSITIONING
 
@@ -43,8 +29,10 @@ public class Main {
 
         // get a list with the players ships and the rows of his battlefield
         PlayerInitialization playerInit1 = PlayerInitialization.getInitialization();
-        NamedRow[] player1_rowList = playerInit1.returnRowList();
-        Ship[] player1_shipList = playerInit1.returnShipList();
+
+        // FIRST INITALIZATION OF LISTS
+        NamedRow[] player1_rowList = playerInit1.getRowList();
+        Ship[] player1_shipList = playerInit1.getShipList();
 
         // creates hashtable in form shipname : coorrdinates
         Hashtable<String, ArrayList<String>> player1_shipcoordinates = new Hashtable<String, ArrayList<String>>();
@@ -57,17 +45,17 @@ public class Main {
         // checks if slots are occupied
         // repeat for every ship
         for (Ship e : player1_shipList){
-            while (e.getShipAmount() > 0){
                 String[] coordinates = InputGetter.askPlacement(e);
                 String startcoordinate = coordinates[0];
                 String endcoordinate = coordinates[1];
-                    e.setShip(startcoordinate, endcoordinate, player1_rowList);
+                    e.setShip(playerInit1, startcoordinate, endcoordinate, player1_rowList);
 
-    }};
-
-
+    };
 
         // FIGHTING PHASE
+
+       Attack player1_attackphase = new Attack(playerInit1, player1_rowList);
+
 
         // WHEN EITHER COUNTER HITS 0, THE GAME IS OVER
         int player_count = player1_shipList.length;
