@@ -53,7 +53,6 @@
       <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Java\jdk-15" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -93,13 +92,9 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="715" y="438" width="1092" height="786" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/-1920.189.1920.1080@0.0.2560.1400" timestamp="1603367753359" />
-    <state x="1157" y="480" key="FileChooserDialogImpl" timestamp="1603367890455">
+    <state x="1157" y="480" key="FileChooserDialogImpl" timestamp="1603367745269">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1157" y="480" key="FileChooserDialogImpl/0.0.2560.1400/-1920.189.1920.1080@0.0.2560.1400" timestamp="1603367890455" />
-    <state x="760" y="386" key="new project wizard" timestamp="1603367911113">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="760" y="386" key="new project wizard/0.0.2560.1400/-1920.189.1920.1080@0.0.2560.1400" timestamp="1603367911113" />
+    <state x="1157" y="480" key="FileChooserDialogImpl/0.0.2560.1400/-1920.189.1920.1080@0.0.2560.1400" timestamp="1603367745269" />
   </component>
 </project>

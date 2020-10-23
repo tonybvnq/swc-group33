@@ -47,4 +47,5 @@ public class Positioning {
             }
         }
         return rowList;
-    }}
+    }
+}

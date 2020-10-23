@@ -61,14 +61,17 @@ public class Main {
                 String[] coordinates = InputGetter.askPlacement(e);
                 String startcoordinate = coordinates[0];
                 String endcoordinate = coordinates[1];
-                    e.setShip(startcoordinate, endcoordinate, rowList);
+                e.setShip(startcoordinate, endcoordinate, rowList);
 
 
-    }};
+            }};
 
         //**Command line output**
         //Assemble rows and lists and print filled board
         OutputAssembler board = new OutputAssembler(rowList);
+        board.printBoard();
+
+        Attack PlayerMove = new Attack(rowList);
         board.printBoard();
 
 
