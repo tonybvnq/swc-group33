@@ -2,29 +2,19 @@ import javax.naming.Name;
 import java.util.*;
 
 
-public class OutputAssembler {
-    NamedRow[] rowList;
-
-    public OutputAssembler(NamedRow[] inputrows){
-        rowList = inputrows;
-    }
+public abstract class  OutputAssembler {
 
     // removed static keyword
-    public  void printBoard() {
+    public static  void printBoard(NamedRow[] rowList) {
         System.out.println("   |[A][B][C][D][E][F][G][H][I][J]");
         System.out.println("---|------------------------------");
-        for (NamedRow row : this.rowList){
-            row.printRow();
+        for (NamedRow row : rowList){
+            row.printRow(); } }
 
-        //for (int i = 0; i < 9; i++) {
-            //TBD: Allocate i to the specific named row instance
+    public static void printScoreboard(int remainingships, int destroyedships ){
+        System.out.println("Your scoureboard: ");
+        System.out.println(" -  Player remaining boats:" + remainingships);
+        System.out.println(" -  Enemy boats destroyed:" + destroyedships);
 
-            // the output assembler should either take the rows as input since they are initialized in Main, or
-            // it only prints the constant first to lines
+    };}
 
-            // output assembler takes a list with NamedRow Obnject and does for every element element.printRow
-
-
-        }
-    }
-}

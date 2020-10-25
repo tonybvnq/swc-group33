@@ -1,7 +1,6 @@
 import java.util.Arrays;
 import java.util.List;
 
-
 // PROBABLY DELETE ROW INTERFACE
 
 public  class NamedRow {
@@ -54,13 +53,7 @@ public  class NamedRow {
         // logic to get right index
         int index = 1 + ((place -1) * 3);
 
-        // testing if slots are occupied
-      /*  String freeslot= " ";
-        char freechar = freeslot.charAt(0);
-        if (this.listRepr[index] != freechar){
-            System.out.println("There is alreasy a ship at this slot!");
-            return;}
-*/
+
         // set shipletter into row
         this.listRepr[index] = shipletter;
         this.stringRepr = String.valueOf(this.listRepr);
@@ -73,6 +66,7 @@ public  class NamedRow {
         String outputReprs = String.format("[%d]|%s", this.rowNumber, stringRepr);
 
         System.out.println(outputReprs);}
+
 
     public void drawHitLetter(char coordinate, boolean isHit){
         int place = 0;
@@ -99,4 +93,4 @@ public  class NamedRow {
             this.stringRepr = String.valueOf(this.listRepr);
         }
     }
-}
+    }

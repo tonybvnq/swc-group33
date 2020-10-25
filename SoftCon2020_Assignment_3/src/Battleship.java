@@ -1,8 +1,11 @@
+import java.util.*;
+
 abstract class Ship implements ShipInterface{
     private String shipname;
     private int length;
     private int amount;
     private char shipletter;
+    private ArrayList<String> shipcoordinates = new ArrayList<String>();
 
     public void setShipName(String name){
         this.shipname = name;
@@ -18,6 +21,10 @@ abstract class Ship implements ShipInterface{
 
     public void setShipLetter(char letter){
         this.shipletter=letter;
+    };
+
+    public void setShipCoordinates(String coordinate){
+        this.shipcoordinates.add(coordinate);
     };
 
     public String getShipname(){
@@ -36,15 +43,20 @@ abstract class Ship implements ShipInterface{
         return this.shipletter;
     };
 
+    public ArrayList<String> getShipCoordinates(){return this.shipcoordinates;};
 
-    public void setShip(String coordinate1, String coordinate2, NamedRow[] rowList){
+
+    public void setShip(Initialization player, String coordinate1, String coordinate2, NamedRow[] rowList){
 
         // check if there are more ships of this type to set
         if (this.amount == 0){
             System.out.println("There are no ships of this type available anymore!");
             return;
         }
-        rowList = Positioning.position(coordinate1, coordinate2, this.shipletter, rowList);
+
+        // add coordinates of ship to the shipobject and place it in field
+        this.setShipCoordinates(coordinate1+coordinate2);
+        rowList = Positioning.position(player, coordinate1, coordinate2, this.shipletter, rowList);
 
         this.setShipAmount(this.getShipAmount()-1);
 

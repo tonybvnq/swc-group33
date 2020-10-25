@@ -1,3 +1,4 @@
+
 import java.util.concurrent.ThreadLocalRandom;
 
 
@@ -16,7 +17,7 @@ public class RandomCoordinateGenerator {
         char randomXValue = xCoordinates.charAt(randomXInt);
         char randomYValue = yCoordinates.charAt(randomYInt);
 
-        System.out.println(""+randomYValue + randomXValue);
+        //System.out.println(""+randomYValue + randomXValue);
 
         return ""+randomYValue + randomXValue;
     }

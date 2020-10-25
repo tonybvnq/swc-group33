@@ -1,3 +1,4 @@
+
 public class InputValidator {
     public static boolean getValidity (String[] listOfPlaces, Ship ship){
 

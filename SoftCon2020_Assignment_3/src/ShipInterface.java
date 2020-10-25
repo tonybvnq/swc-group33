@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public interface ShipInterface {
 
     public  void setShipAmount(int amount);
@@ -8,6 +10,8 @@ public interface ShipInterface {
 
     public void setShipLength(int length);
 
+    public void setShipCoordinates(String coordinates);
+
     public String getShipname();
 
     public int getShipLength();
@@ -16,8 +20,10 @@ public interface ShipInterface {
 
     public char getShipLetter();
 
+    public ArrayList<String> getShipCoordinates();
+
     //  checks if amount is not 0,  calles the positioning method and lowers the amount of ships by 1
-    public void setShip(String coordinate1, String coordinate2, NamedRow[] rowList);
+    public void setShip(Initialization player, String coordinate1, String coordinate2, NamedRow[] rowList);
 
     };
 
