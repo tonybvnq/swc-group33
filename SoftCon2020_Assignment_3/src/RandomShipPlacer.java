@@ -40,7 +40,7 @@ public class RandomShipPlacer {
         endpoint = ""+endPoint1 + endPoint2;
         place[0] = startPoint;
         place[1] = endpoint;
-        //System.out.println(String.join(" ", place));
+        System.out.println(String.join(" ", place));
         return place;
 
     }

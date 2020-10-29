@@ -1,3 +1,4 @@
+
 public class InputValidator {
     public static boolean getValidity (String[] listOfPlaces, Ship ship){
 
@@ -38,5 +39,21 @@ public class InputValidator {
             System.out.println("Specified input is invalid");
         }
         return inputIsValid;
+    }
+
+    public static boolean getAttackValidity(String AttackPosition) {
+        boolean inputIsValid = false;
+        String ycoordinates = "ABCDEFGHIJ";
+        String xcoordinates = "0123456789";
+        char firstChar = AttackPosition.charAt(0);
+        char secondChar = AttackPosition.charAt(1);
+
+        if (AttackPosition.length() == 2
+                && ycoordinates.indexOf(firstChar) != -1
+                && xcoordinates.indexOf(secondChar) != -1) {
+            inputIsValid = true;
+        }
+        return inputIsValid;
+
     }
 }

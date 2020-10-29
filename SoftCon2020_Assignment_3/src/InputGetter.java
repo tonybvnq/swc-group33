@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.*;
@@ -20,6 +19,20 @@ public class InputGetter {
 
         }
         return listOfPlaces;
+    }
+
+    public static String askAttackPlacement() {
+        Boolean inputIsValid = false;
+        String AttackPosition = "new String[2]";
+        while (!inputIsValid) {
+            Scanner pos = new Scanner(System.in);  // Create a Scanner object
+            String question = "Enter the position you want to attack:"; //Create question
+            System.out.println(question); //Print question
+            AttackPosition = pos.nextLine();
+            inputIsValid = InputValidator.getAttackValidity(AttackPosition);  //Check if input is valid
+
+        }
+        return AttackPosition;
     }
 
 }

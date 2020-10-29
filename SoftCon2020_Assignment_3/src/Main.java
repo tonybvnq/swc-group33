@@ -8,69 +8,67 @@ public class Main {
 
 
 
-    // stores the occupied slots of the board
-    private static List<String> occupiedslots = new ArrayList<String>();
-
-    public static Boolean isInOccupiedSlots(String coordinate){
-        return occupiedslots.contains(coordinate);
-    };
-
-    public static List<String> getOccupiedSlots(){
-        return occupiedslots;
-    };
-
-
-    public static void setOccupiedslots(String coordinate){
-        occupiedslots.add(coordinate);
-    };
-
     public static void main(String[] args)  {
         System.out.println("Welcome to Battleship!!");
 
         //**Initialize**
-        //Create and maintain rows with Lists
-        // create ships as objects
-        NamedRow row0 = new NamedRow(0);
-        NamedRow row1 = new NamedRow(1);
-        NamedRow row2 = new NamedRow(2);
-        NamedRow row3 = new NamedRow(3);
-        NamedRow row4 = new NamedRow(4);
-        NamedRow row5 = new NamedRow(5);
-        NamedRow row6 = new NamedRow(6);
-        NamedRow row7 = new NamedRow(7);
-        NamedRow row8 = new NamedRow(8);
-        NamedRow row9 = new NamedRow(9);
 
-        Carrier carriership = new Carrier();
-        Battleship battleship = new Battleship();
-        Submarine submarine = new Submarine();
-        PatrolBoat patrolBoat = new PatrolBoat();
+        // COMPUTER PLAYER INITIALIZATION
+
+        ComputerPlayerInitialization computerinit1 = ComputerPlayerInitialization.getInitialization();
+
+        // FIRST INITALIZATION OF LISTS
+        NamedRow[] computerplayer_rowList = computerinit1.getRowList();
+        Ship[] computerplayer_shipList = computerinit1.getShipList();
+
+        // RANDOM POSITIONING
 
 
-        // create iterable lists for rows and ships
-        NamedRow[] rowList = new NamedRow[]{row0, row1, row2, row3, row4, row5, row6, row7, row8, row9};
-        Ship[] shipList = new Ship[]{carriership, battleship, submarine, patrolBoat};
 
+        // PLAYER 1 INITALIZATION & POSITIONING
+
+        // get a list with the players ships and the rows of his battlefield
+        PlayerInitialization playerInit1 = PlayerInitialization.getInitialization();
+
+        // FIRST INITALIZATION OF LISTS
+        NamedRow[] player1_rowList = playerInit1.getRowList();
+        Ship[] player1_shipList = playerInit1.getShipList();
+
+        // creates hashtable in form shipname : coorrdinates
+        Hashtable<String, ArrayList<String>> player1_shipcoordinates = new Hashtable<String, ArrayList<String>>();
+        for (Ship s : player1_shipList){
+            player1_shipcoordinates.put(s.getShipname(), s.getShipCoordinates());
+        }
 
         // iterate through ships
         // asks for input and assigns to positioning on board as long as amount of certain ship doesnt reach 0
         // checks if slots are occupied
         // repeat for every ship
-        for (Ship e : shipList){
-            while (e.getShipAmount() > 0){
+        for (Ship e : player1_shipList){
                 String[] coordinates = InputGetter.askPlacement(e);
                 String startcoordinate = coordinates[0];
                 String endcoordinate = coordinates[1];
-                e.setShip(startcoordinate, endcoordinate, rowList);
+                    e.setShip(playerInit1, startcoordinate, endcoordinate, player1_rowList);
+
+    };
+
+        // FIGHTING PHASE
+
+       Attack player1_attackphase = new Attack(playerInit1, player1_rowList);
 
 
-            }};
+        // WHEN EITHER COUNTER HITS 0, THE GAME IS OVER
+        int player_count = player1_shipList.length;
+        int computerplayer_count = player1_shipList.length;
+        int destroyedshipsyplayer = 0;
 
         //**Command line output**
         //Assemble rows and lists and print filled board
-        OutputAssembler board = new OutputAssembler(rowList);
-        board.printBoard();
-
+        System.out.println("Your board");
+        OutputAssembler.printBoard(player1_rowList);
+        System.out.println("Your oponents board");
+        OutputAssembler.printBoard(computerplayer_rowList);
+        OutputAssembler.printScoreboard(player_count, destroyedshipsyplayer);
 
 
     }}
