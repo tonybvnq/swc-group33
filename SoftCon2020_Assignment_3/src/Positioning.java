@@ -27,7 +27,6 @@ public class Positioning {
                 if (player.isInOccupiedSlots(field)){ System.out.println("There is already a ship at this slot!"); break;};
                 player.setOccupiedslots(field);
 
-
                 // draws shipletter into row
                 rowList[dex].drawShipLetter(input1.charAt(0), shipletter);
                 dex ++;

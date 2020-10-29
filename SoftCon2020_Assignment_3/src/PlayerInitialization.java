@@ -13,6 +13,8 @@ abstract class Initialization{
 
     private Ship[] shipList;
 
+
+
     public Boolean isInOccupiedSlots(String coordinate){ return this.occupiedslots.contains(coordinate);};
 
     public List<String> getOccupiedSlots(){return this.occupiedslots;};
@@ -34,6 +36,13 @@ abstract class Initialization{
     public Ship[] getShipList() {
         return shipList;
     }
+
+    // list to keep track of the slots that are hit
+    private List<String> hitSlots = new ArrayList<String>();
+    public Boolean isInHitSlots(String coordinate){ return this.hitSlots.contains(coordinate);};
+    public List<String> getHitSlots(){ return this.hitSlots;};
+    public void setHitSlots(String coordinate){ this.getHitSlots().add(coordinate);};
+
 };
 
 

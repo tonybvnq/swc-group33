@@ -84,7 +84,7 @@ public  class NamedRow {
         int index = 1 + ((place -1) * 3);
 
         if (isHit) {
-            char boat_type = this.listRepr[index]; // To later identify it boat is completely destroyed
+            char boat_type = this.listRepr[index]; // To later identify if boat is completely destroyed
             this.listRepr[index] = 'X';
             this.stringRepr = String.valueOf(this.listRepr);
         }

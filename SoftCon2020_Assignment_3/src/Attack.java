@@ -8,8 +8,9 @@ import java.util.Iterator;
 public class Attack {
     NamedRow[] rowList;
 
+
     public Attack(Initialization player, NamedRow[] inputrows) {
-        String AttackCoordinates = InputGetter.askAttackPlacement();
+        String AttackCoordinates = InputGetter.askAttackPlacement(player);
         rowList = attack_position(player, AttackCoordinates, inputrows);
     }
 
@@ -20,11 +21,14 @@ public class Attack {
         if (player.isInOccupiedSlots(input)) {
             rowList[InputNum].drawHitLetter(charOfInput,true);
             System.out.println("You hit a boat!");
+            player.setHitSlots(input);
         }
+
         else {
             rowList[InputNum].drawHitLetter(charOfInput, false);
             System.out.println("Miss!");
         }
+
 
         return rowList;
     }

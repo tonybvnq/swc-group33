@@ -21,7 +21,7 @@ public class InputGetter {
         return listOfPlaces;
     }
 
-    public static String askAttackPlacement() {
+    public static String askAttackPlacement(Initialization player) {
         Boolean inputIsValid = false;
         String AttackPosition = "new String[2]";
         while (!inputIsValid) {
@@ -29,7 +29,8 @@ public class InputGetter {
             String question = "Enter the position you want to attack:"; //Create question
             System.out.println(question); //Print question
             AttackPosition = pos.nextLine();
-            inputIsValid = InputValidator.getAttackValidity(AttackPosition);  //Check if input is valid
+            inputIsValid = InputValidator.getAttackValidity(player, AttackPosition);  //Check if input is valid
+
 
         }
         return AttackPosition;
