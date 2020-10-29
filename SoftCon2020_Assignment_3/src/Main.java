@@ -22,6 +22,24 @@ public class Main {
         Ship[] computerplayer_shipList = computerinit1.getShipList();
 
         // RANDOM POSITIONING
+        Hashtable<String, ArrayList<String>> computerplayer_shipcoordinates = new Hashtable<String, ArrayList<String>>();
+        for (Ship s : computerplayer_shipList){
+            computerplayer_shipcoordinates.put(s.getShipname(), s.getShipCoordinates());
+        }
+
+        // iterate through ships
+        // asks for input and assigns to positioning on board as long as amount of certain ship doesnt reach 0
+        // checks if slots are occupied
+        // repeat for every ship
+        for (Ship e : computerplayer_shipList) {
+            String[] coordinates = RandomShipPlacer.placeShipRandomly(e);
+            String startcoordinate = coordinates[0];
+            String endcoordinate = coordinates[1];
+            e.setShip(computerinit1, startcoordinate, endcoordinate, computerplayer_rowList, true);
+        }
+        
+        //Test Computer board
+        OutputAssembler.printBoard(computerplayer_rowList);
 
 
 
@@ -48,13 +66,13 @@ public class Main {
                 String[] coordinates = InputGetter.askPlacement(e);
                 String startcoordinate = coordinates[0];
                 String endcoordinate = coordinates[1];
-                    e.setShip(playerInit1, startcoordinate, endcoordinate, player1_rowList);
+                e.setShip(playerInit1, startcoordinate, endcoordinate, player1_rowList, false);
 
     };
 
         // FIGHTING PHASE
 
-       Attack player1_attackphase = new Attack(playerInit1, player1_rowList);
+        Attack player1_attackphase = new Attack(playerInit1, player1_rowList);
 
 
         // WHEN EITHER COUNTER HITS 0, THE GAME IS OVER
