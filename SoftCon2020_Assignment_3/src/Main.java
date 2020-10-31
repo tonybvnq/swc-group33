@@ -31,13 +31,24 @@ public class Main {
         // asks for input and assigns to positioning on board as long as amount of certain ship doesnt reach 0
         // checks if slots are occupied
         // repeat for every ship
-        for (Ship e : computerplayer_shipList) {
-            String[] coordinates = RandomShipPlacer.placeShipRandomly(e);
-            String startcoordinate = coordinates[0];
-            String endcoordinate = coordinates[1];
-            e.setShip(computerinit1, startcoordinate, endcoordinate, computerplayer_rowList, true);
+
+        for (Ship e1 : computerplayer_shipList) {
+            while (true){
+                try{
+                    String[] coordinates = RandomShipPlacer.placeShipRandomly(e1);
+                    String startcoordinate = coordinates[0];
+                    String endcoordinate = coordinates[1];
+                    e1.setShip(computerinit1, startcoordinate, endcoordinate, computerplayer_rowList, true);
+                    break;
+                }catch(Exception e){
+                    continue;
+                }
+
+            }
+
+
         }
-        
+
         //Test Computer board
         OutputAssembler.printBoard(computerplayer_rowList);
 
@@ -66,27 +77,37 @@ public class Main {
                 String[] coordinates = InputGetter.askPlacement(e);
                 String startcoordinate = coordinates[0];
                 String endcoordinate = coordinates[1];
-                e.setShip(playerInit1, startcoordinate, endcoordinate, player1_rowList, false);
+                try{
+                    e.setShip(playerInit1, startcoordinate, endcoordinate, player1_rowList, false);
+                }catch(Exception e2){
+                    continue;
+                }
 
     };
 
+        // THIS IS NEW !!
         // FIGHTING PHASE
 
-        Attack player1_attackphase = new Attack(playerInit1, player1_rowList);
-
-
         // WHEN EITHER COUNTER HITS 0, THE GAME IS OVER
-        int player_count = player1_shipList.length;
-        int computerplayer_count = player1_shipList.length;
-        int destroyedshipsyplayer = 0;
+        while (playerInit1.getShipcounter() != 0 && computerinit1.getShipcounter() != 0){
+            Attack player1_attackphase = new Attack(playerInit1, computerplayer_rowList);
+            Attack computerplayer_attackphase = new Attack(computerinit1, player1_rowList);
 
-        //**Command line output**
-        //Assemble rows and lists and print filled board
-        System.out.println("Your board");
-        OutputAssembler.printBoard(player1_rowList);
-        System.out.println("Your oponents board");
-        OutputAssembler.printBoard(computerplayer_rowList);
-        OutputAssembler.printScoreboard(player_count, destroyedshipsyplayer);
+            //**Command line output**
+            //Assemble rows and lists and print filled board
+            System.out.println("Your board");
+            OutputAssembler.printBoard(player1_rowList);
+            System.out.println("Your opponents board");
+            OutputAssembler.printBoard(computerplayer_rowList);
+            OutputAssembler.printScoreboard(playerInit1.getShipcounter(),
+                    computerplayer_shipList.length - computerinit1.getShipcounter());
+        }
+
+        if (playerInit1.getShipcounter() == 0){
+            System.out.println("Sorry, you lost");
+        }
+        else {System.out.println("congratulations, you won");}
+
 
 
     }}

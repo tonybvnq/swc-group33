@@ -14,13 +14,14 @@ public class ComputerPlayerInitialization extends Initialization{
         createPlayersOccupiedSlotsList(computerplayer_occupiedslots);
         setRowList(createRowList());
         setShiplist(createShipList());
+        setShipcounter(this.getShipList().length);
     };
 
 
     // CREATES THE ONLY SINGELTON OF THIS OBJECT
     public static ComputerPlayerInitialization getInitialization(){
         if (computerinit == null){
-           return new ComputerPlayerInitialization();
+            return new ComputerPlayerInitialization();
         }
         return computerinit;
     }

@@ -4,7 +4,7 @@ import java.util.List;
 public class PositioningComputer {
     // takes the user input, the letter of the ship and all the rows as input
     // gives back the changed rows
-    public static NamedRow[] position(Initialization ComputerPlayerInitialization, String input1, String input2, char shipletter, NamedRow[] rowList){
+    public static NamedRow[] position(Initialization ComputerPlayerInitialization, String input1, String input2, char shipletter, NamedRow[] rowList) throws Exception {
 
 
         // if input goes from right to left or down to up, swap inputs
@@ -27,7 +27,7 @@ public class PositioningComputer {
                 String field = new StringBuilder().append(input1.charAt(0)).append(dex).toString();
                 if (ComputerPlayerInitialization.isInOccupiedSlots(field)){
                     System.out.println("There is already a ship at this slot!");
-                    break;
+                    throw new Exception();
                 }
                 ComputerPlayerInitialization.setOccupiedslots(field);
 
@@ -47,7 +47,7 @@ public class PositioningComputer {
                 String field = new StringBuilder().append(ycoordinates.charAt(dex1)).append(numOfInput1).toString();
                 if (ComputerPlayerInitialization.isInOccupiedSlots(field)){
                     System.out.println("There is already a ship at this slot!");
-                    break;
+                    throw new Exception();
                 }
                 ComputerPlayerInitialization.setOccupiedslots(field);
 

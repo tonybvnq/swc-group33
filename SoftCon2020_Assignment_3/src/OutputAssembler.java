@@ -17,4 +17,3 @@ public abstract class  OutputAssembler {
         System.out.println(" -  Enemy boats destroyed:" + destroyedships);
 
     };}
-
