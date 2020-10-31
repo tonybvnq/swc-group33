@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Positioning {
-        // takes the user input, the letter of the ship and all the rows as input
-        // gives back the changed rows
+    // takes the user input, the letter of the ship and all the rows as input
+    // gives back the changed rows
     public static NamedRow[] position(Initialization player, String input1, String input2, char shipletter, NamedRow[] rowList){
 
 
@@ -17,6 +18,8 @@ public class Positioning {
         String ycoordinates = "ABCDEFGHIJ";
         int numOfInput1 =  Integer.parseInt(String.valueOf(input1.charAt(1)));
         int numOfInput2 =  Integer.parseInt(String.valueOf(input2.charAt(1)));
+        ArrayList<Integer> dexList = new ArrayList<Integer>();
+        boolean valid = true;
 
         // if the x coordinate is same, e.g. E5 E8
         if (input1.charAt(0) == input2.charAt(0)) {
@@ -24,15 +27,21 @@ public class Positioning {
             while( dex <= numOfInput2){
                 // check if field is in occupedfields, if not, add to list and write in row
                 String field = new StringBuilder().append(input1.charAt(0)).append(dex).toString();
-                if (player.isInOccupiedSlots(field)){ System.out.println("There is already a ship at this slot!"); break;};
+                if (player.isInOccupiedSlots(field)){ System.out.println("There is already a ship at this slot!");
+                    valid = false; break;};
                 player.setOccupiedslots(field);
 
 
                 // draws shipletter into row
-                rowList[dex].drawShipLetter(input1.charAt(0), shipletter);
+                dexList.add(dex);
                 dex ++;
 
-            } }
+            }
+            if (valid){
+                for (int i : dexList){
+                    rowList[i].drawShipLetter(input1.charAt(0), shipletter);
+                }}
+        }
         // if the Y coordinate is same e.g B3 F3
         else {
             int dex1 = ycoordinates.indexOf(input1.charAt(0));
@@ -41,13 +50,19 @@ public class Positioning {
             while (dex1 <= dex2){
                 // check if field is in occupedfields, if not, add to list and write in row
                 String field = new StringBuilder().append(ycoordinates.charAt(dex1)).append(numOfInput1).toString();
-                if (player.isInOccupiedSlots(field)){ System.out.println("There is already a ship at this slot!"); break;};
+                if (player.isInOccupiedSlots(field)){ System.out.println("There is already a ship at this slot!");
+                    valid = false; break;};
                 player.setOccupiedslots(field);
 
                 // draws shipletter into row
-                rowList[numOfInput1].drawShipLetter(ycoordinates.charAt(dex1), shipletter);
+                dexList.add(dex1);
                 dex1 ++;
             }
+
+            if (valid){
+                for (int i : dexList){
+                    rowList[numOfInput1].drawShipLetter(ycoordinates.charAt(i), shipletter);
+                }}
         }
         return rowList;
     }}

@@ -90,8 +90,8 @@ public class Main {
 
         // WHEN EITHER COUNTER HITS 0, THE GAME IS OVER
         while (playerInit1.getShipcounter() != 0 && computerinit1.getShipcounter() != 0){
-            Attack player1_attackphase = new Attack(playerInit1, computerplayer_rowList);
-            Attack computerplayer_attackphase = new Attack(computerinit1, player1_rowList);
+            Attack player1_attackphase = new Attack(playerInit1, computerinit1, computerplayer_rowList, false);
+            Attack computerplayer_attackphase = new Attack(computerinit1, playerInit1, player1_rowList, true);
 
             //**Command line output**
             //Assemble rows and lists and print filled board

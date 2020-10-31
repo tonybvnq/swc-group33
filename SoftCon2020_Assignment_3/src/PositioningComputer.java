@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,6 +19,8 @@ public class PositioningComputer {
         String ycoordinates = "ABCDEFGHIJ";
         int numOfInput1 =  Integer.parseInt(String.valueOf(input1.charAt(1)));
         int numOfInput2 =  Integer.parseInt(String.valueOf(input2.charAt(1)));
+        ArrayList<Integer> dexList = new ArrayList<Integer>();
+        boolean valid = true;
 
         // if the x coordinate is same, e.g. E5 E8
         if (input1.charAt(0) == input2.charAt(0)) {
@@ -25,18 +28,21 @@ public class PositioningComputer {
             while( dex <= numOfInput2){
                 // check if field is in occupedfields, if not, add to list and write in row
                 String field = new StringBuilder().append(input1.charAt(0)).append(dex).toString();
-                if (ComputerPlayerInitialization.isInOccupiedSlots(field)){
-                    System.out.println("There is already a ship at this slot!");
-                    throw new Exception();
-                }
+                if (ComputerPlayerInitialization.isInOccupiedSlots(field)){ System.out.println("There is already a ship at this slot!");
+                    valid = false; throw new Exception();};
                 ComputerPlayerInitialization.setOccupiedslots(field);
 
 
                 // draws shipletter into row
-                rowList[dex].drawShipLetter(input1.charAt(0), shipletter);
+                dexList.add(dex);
                 dex ++;
 
-            } }
+            }
+            if (valid){
+                for (int i : dexList){
+                    rowList[i].drawShipLetter(input1.charAt(0), shipletter);
+                }}
+        }
         // if the Y coordinate is same e.g B3 F3
         else {
             int dex1 = ycoordinates.indexOf(input1.charAt(0));
@@ -45,17 +51,19 @@ public class PositioningComputer {
             while (dex1 <= dex2){
                 // check if field is in occupedfields, if not, add to list and write in row
                 String field = new StringBuilder().append(ycoordinates.charAt(dex1)).append(numOfInput1).toString();
-                if (ComputerPlayerInitialization.isInOccupiedSlots(field)){
-                    System.out.println("There is already a ship at this slot!");
-                    throw new Exception();
-                }
+                if (ComputerPlayerInitialization.isInOccupiedSlots(field)){ System.out.println("There is already a ship at this slot!");
+                    valid = false; throw new Exception();};
                 ComputerPlayerInitialization.setOccupiedslots(field);
 
                 // draws shipletter into row
-                rowList[numOfInput1].drawShipLetter(ycoordinates.charAt(dex1), shipletter);
+                dexList.add(dex1);
                 dex1 ++;
             }
-        }
 
+            if (valid){
+                for (int i : dexList){
+                    rowList[numOfInput1].drawShipLetter(ycoordinates.charAt(i), shipletter);
+                }}
+        }
         return rowList;
     }}

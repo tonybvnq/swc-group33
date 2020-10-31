@@ -50,6 +50,7 @@ abstract class Initialization{
     public Boolean isInHitSlots(String coordinate){ return this.hitSlots.contains(coordinate);};
     public List<String> getHitSlots(){ return this.hitSlots;};
     public void setHitSlots(String coordinate){ this.getHitSlots().add(coordinate);};
+
 };
 
 
