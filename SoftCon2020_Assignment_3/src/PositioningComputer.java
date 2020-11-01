@@ -28,7 +28,7 @@ public class PositioningComputer {
             while( dex <= numOfInput2){
                 // check if field is in occupedfields, if not, add to list and write in row
                 String field = new StringBuilder().append(input1.charAt(0)).append(dex).toString();
-                if (ComputerPlayerInitialization.isInOccupiedSlots(field)){ System.out.println("There is already a ship at this slot!");
+                if (ComputerPlayerInitialization.isInOccupiedSlots(field)){
                     valid = false; throw new Exception();};
                 ComputerPlayerInitialization.setOccupiedslots(field);
 
@@ -51,7 +51,7 @@ public class PositioningComputer {
             while (dex1 <= dex2){
                 // check if field is in occupedfields, if not, add to list and write in row
                 String field = new StringBuilder().append(ycoordinates.charAt(dex1)).append(numOfInput1).toString();
-                if (ComputerPlayerInitialization.isInOccupiedSlots(field)){ System.out.println("There is already a ship at this slot!");
+                if (ComputerPlayerInitialization.isInOccupiedSlots(field)){
                     valid = false; throw new Exception();};
                 ComputerPlayerInitialization.setOccupiedslots(field);
 

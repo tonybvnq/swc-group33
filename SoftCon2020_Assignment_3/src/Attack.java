@@ -15,10 +15,10 @@ public class Attack {
         }else {
             AttackCoordinates = InputGetter.askAttackPlacement(player);
         }
-        rowList = attack_position(player,oponent, AttackCoordinates, inputrows);
+        rowList = attack_position(player,oponent, AttackCoordinates, inputrows, isComputer);
     }
 
-    public static NamedRow[] attack_position(Initialization player, Initialization oponent, String input, NamedRow[] rowList){
+    public static NamedRow[] attack_position(Initialization player, Initialization oponent, String input, NamedRow[] rowList, boolean isComputer){
 
 
         char numOfInput =  input.charAt(1);
@@ -26,12 +26,16 @@ public class Attack {
         char charOfInput = input.charAt(0);
         if (oponent.isInOccupiedSlots(input)) {
             rowList[InputNum].drawHitLetter(charOfInput,true);
-            System.out.println("You hit a boat!");
+            if (!isComputer){
+                System.out.println("You hit a boat!");
+            }
             player.setShipcounter(player.getShipcounter()-1);
         }
         else {
             rowList[InputNum].drawHitLetter(charOfInput, false);
-            System.out.println("Miss!");
+            if (!isComputer) {
+                System.out.println("Miss!");
+            }
         }
 
         return rowList;
