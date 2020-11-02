@@ -89,7 +89,7 @@ public class Main {
         // FIGHTING PHASE
 
         // WHEN EITHER COUNTER HITS 0, THE GAME IS OVER
-        while (playerInit1.getShipcounter() != 0 && computerinit1.getShipcounter() != 0){
+        while (player1_shipcoordinates.size() != 0 && computer_shipcoordinates.size() != 0){
             Attack player1_attackphase = new Attack(playerInit1, computerinit1, computer_shipcoordinates, computerplayer_rowList, false);
             Attack computerplayer_attackphase = new Attack(computerinit1, playerInit1, player1_shipcoordinates, player1_rowList, true);
 
