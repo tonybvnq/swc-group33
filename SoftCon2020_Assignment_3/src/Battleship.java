@@ -56,7 +56,7 @@ abstract class Ship implements ShipInterface{
             }
             // add coordinates of ship to the shipobject and place it in field
             this.setShipCoordinates(coordinate1+coordinate2);
-            rowList = Positioning.position(player, coordinate1, coordinate2, this.shipletter, rowList);
+            rowList = Positioning.position(player, this,  coordinate1, coordinate2, this.shipletter, rowList);
 
             this.setShipAmount(this.getShipAmount()-1);
         }
@@ -67,7 +67,7 @@ abstract class Ship implements ShipInterface{
             // add coordinates of ship to the shipobject and place it in field
             this.setShipCoordinates(coordinate1+coordinate2);
             try{
-                rowList = PositioningComputer.position(player, coordinate1, coordinate2, this.shipletter, rowList);
+                rowList = PositioningComputer.position(player, this,  coordinate1, coordinate2, this.shipletter, rowList);
             }catch(Exception e){
                 throw new Exception();
             }

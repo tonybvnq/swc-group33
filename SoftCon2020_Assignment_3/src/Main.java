@@ -47,7 +47,7 @@ public class Main {
             computer_shipcoordinates.put(s.getShipname(), s.getShipCoordinates());
         }
         //Test Computer board
-        OutputAssembler.printBoard(computerplayer_rowList);
+        //OutputAssembler.printBoard(computerplayer_rowList);
 
 
 
@@ -100,7 +100,7 @@ public class Main {
             System.out.println("Your opponents board");
             OutputAssembler.printBoard(computerplayer_rowList);
             OutputAssembler.printScoreboard(player1_shipcoordinates.size(),
-                    computer_shipcoordinates.size());
+                    (10 - computer_shipcoordinates.size()));
         }
 
         if (playerInit1.getShipcounter() == 0){
