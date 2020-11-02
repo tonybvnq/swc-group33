@@ -43,25 +43,33 @@ public class InputValidator {
 
     public static boolean getAttackValidity(Initialization player, String AttackPosition) {
         boolean inputIsValid = false;
-        String ycoordinates = "ABCDEFGHIJ";
-        String xcoordinates = "0123456789";
         char firstChar = AttackPosition.charAt(0);
         char secondChar = AttackPosition.charAt(1);
 
-        if (player.isInHitSlots(AttackPosition)){
+        if (player.isInHitSlots(AttackPosition)) {
             System.out.println("You already attacked this spot");
             return inputIsValid;
         }
 
-        if (AttackPosition.length() == 2
-                && ycoordinates.indexOf(firstChar) != -1
-                && xcoordinates.indexOf(secondChar) != -1) {
-            inputIsValid = true;
-            player.setHitSlots(AttackPosition);
+        if (AttackPosition.length() == 2) {
+            CharCoordinates charcoordinates = new CharCoordinates();
+            NumCoordinates numcoordinates = new NumCoordinates();
+
+            for (Iterator iter = charcoordinates.getIterator(); iter.hasNext(); ) {
+                if (firstChar == (char)iter.next()) {
+                    for(Iterator iter2 = numcoordinates.getIterator(); iter2.hasNext(); ) {
+                        if (secondChar == (char)iter2.next()) {
+                            inputIsValid = true;
+                            player.setHitSlots(AttackPosition);
+                        }
+                    }
+                }
+            }
+
         }
-
-
+        if (!inputIsValid) {
+            System.out.println("Specified input is invalid");
+        }
         return inputIsValid;
-
     }
 }
