@@ -22,10 +22,6 @@ public class Main {
         Ship[] computerplayer_shipList = computerinit1.getShipList();
 
         // RANDOM POSITIONING
-        Hashtable<String, ArrayList<String>> computerplayer_shipcoordinates = new Hashtable<String, ArrayList<String>>();
-        for (Ship s : computerplayer_shipList){
-            computerplayer_shipcoordinates.put(s.getShipname(), s.getShipCoordinates());
-        }
 
         // iterate through ships
         // asks for input and assigns to positioning on board as long as amount of certain ship doesnt reach 0
@@ -43,12 +39,13 @@ public class Main {
                 }catch(Exception e){
                     continue;
                 }
-
             }
-
-
         }
-
+        // creates hashtable in form shipname : coorrdinates
+        Hashtable<String, ArrayList<String>> computer_shipcoordinates = new Hashtable<String, ArrayList<String>>();
+        for (Ship s : computerplayer_shipList){
+            computer_shipcoordinates.put(s.getShipname(), s.getShipCoordinates());
+        }
         //Test Computer board
         OutputAssembler.printBoard(computerplayer_rowList);
 
@@ -63,35 +60,38 @@ public class Main {
         NamedRow[] player1_rowList = playerInit1.getRowList();
         Ship[] player1_shipList = playerInit1.getShipList();
 
+
+
+        // iterate through ships
+        // asks for input and assigns to positioning on board as long as amount of certain ship doesnt reach 0
+        // checks if slots are occupied
+        // repeat for every ship
+        for (Ship e1 : player1_shipList) {
+            while (true){
+                try{
+                    String[] coordinates = InputGetter.askPlacement(e1);
+                    String startcoordinate = coordinates[0];
+                    String endcoordinate = coordinates[1];
+                    e1.setShip(playerInit1, startcoordinate, endcoordinate, player1_rowList, false);
+                    break;
+                }catch(Exception e){
+                    continue;
+                }
+            }
+        }
         // creates hashtable in form shipname : coorrdinates
         Hashtable<String, ArrayList<String>> player1_shipcoordinates = new Hashtable<String, ArrayList<String>>();
         for (Ship s : player1_shipList){
             player1_shipcoordinates.put(s.getShipname(), s.getShipCoordinates());
         }
 
-        // iterate through ships
-        // asks for input and assigns to positioning on board as long as amount of certain ship doesnt reach 0
-        // checks if slots are occupied
-        // repeat for every ship
-        for (Ship e : player1_shipList){
-                String[] coordinates = InputGetter.askPlacement(e);
-                String startcoordinate = coordinates[0];
-                String endcoordinate = coordinates[1];
-                try{
-                    e.setShip(playerInit1, startcoordinate, endcoordinate, player1_rowList, false);
-                }catch(Exception e2){
-                    continue;
-                }
 
-    };
-
-        // THIS IS NEW !!
         // FIGHTING PHASE
 
         // WHEN EITHER COUNTER HITS 0, THE GAME IS OVER
         while (playerInit1.getShipcounter() != 0 && computerinit1.getShipcounter() != 0){
-            Attack player1_attackphase = new Attack(playerInit1, computerinit1, computerplayer_rowList, false);
-            Attack computerplayer_attackphase = new Attack(computerinit1, playerInit1, player1_rowList, true);
+            Attack player1_attackphase = new Attack(playerInit1, computerinit1, computer_shipcoordinates, computerplayer_rowList, false);
+            Attack computerplayer_attackphase = new Attack(computerinit1, playerInit1, player1_shipcoordinates, player1_rowList, true);
 
             //**Command line output**
             //Assemble rows and lists and print filled board
@@ -99,8 +99,8 @@ public class Main {
             OutputAssembler.printBoard(player1_rowList);
             System.out.println("Your opponents board");
             OutputAssembler.printBoard(computerplayer_rowList);
-            OutputAssembler.printScoreboard(playerInit1.getShipcounter(),
-                    computerplayer_shipList.length - computerinit1.getShipcounter());
+            OutputAssembler.printScoreboard(player1_shipcoordinates.size(),
+                    computer_shipcoordinates.size());
         }
 
         if (playerInit1.getShipcounter() == 0){
@@ -111,5 +111,6 @@ public class Main {
 
 
     }}
+
 
 
