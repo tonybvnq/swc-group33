@@ -1,1 +1,1 @@
-Test
+The iterator pattern was implemented to check if the attack coordinate is out of bounds by iterate through the coordinates and compare them to the user input. An interface "container" returns the iterator. The concrete classes CharCoordinates & NumCoordinates, that implement the container interface, are resposnsible to implement the Iterator interface and use it
