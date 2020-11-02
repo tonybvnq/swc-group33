@@ -24,10 +24,15 @@ public class Attack {
         char numOfInput =  input.charAt(1);
         int InputNum = Character.getNumericValue(numOfInput);
         char charOfInput = input.charAt(0);
+        if (isComputer) {
+            System.out.println("The computer attacks position " + input);
+        }
         if (oponent.isInOccupiedSlots(input)) {
             rowList[InputNum].drawHitLetter(charOfInput,true);
             if (!isComputer){
                 System.out.println("You hit a boat!");
+            }else{
+                System.out.println("Your boat was hit!");
             }
             player.setShipcounter(player.getShipcounter()-1);
         }
@@ -35,6 +40,8 @@ public class Attack {
             rowList[InputNum].drawHitLetter(charOfInput, false);
             if (!isComputer) {
                 System.out.println("Miss!");
+            }else{
+                System.out.println("The computer missed!");
             }
         }
 
