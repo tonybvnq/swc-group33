@@ -5,7 +5,8 @@ import java.util.List;
 public class PositioningComputer {
     // takes the user input, the letter of the ship and all the rows as input
     // gives back the changed rows
-    public static NamedRow[] position(Initialization ComputerPlayerInitialization, String input1, String input2, char shipletter, NamedRow[] rowList) throws Exception {
+    public static NamedRow[] position(Initialization ComputerPlayerInitialization, Ship ship, String input1, String input2,
+                                      char shipletter, NamedRow[] rowList) throws Exception {
 
 
         // if input goes from right to left or down to up, swap inputs
@@ -39,9 +40,14 @@ public class PositioningComputer {
 
             }
             if (valid){
+                StringBuilder coordinates = new StringBuilder();
                 for (int i : dexList){
+                    String ic = Integer.toString(i);
+                    coordinates.append(input1.charAt(0));
+                    coordinates.append(ic);
                     rowList[i].drawShipLetter(input1.charAt(0), shipletter);
-                }}
+                }
+                ship.setShipCoordinates(coordinates.toString());}
         }
         // if the Y coordinate is same e.g B3 F3
         else {
@@ -61,9 +67,15 @@ public class PositioningComputer {
             }
 
             if (valid){
+                StringBuilder coordinates = new StringBuilder();
                 for (int i : dexList){
+                    String numc = Integer.toString(numOfInput1);
+                    coordinates.append(ycoordinates.charAt(i));
+                    coordinates.append(numc);
                     rowList[numOfInput1].drawShipLetter(ycoordinates.charAt(i), shipletter);
-                }}
+                }
+                ship.setShipCoordinates(coordinates.toString());
+            }
         }
         return rowList;
     }}
