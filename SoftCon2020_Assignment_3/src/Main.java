@@ -103,7 +103,7 @@ public class Main {
                     (10 - computer_shipcoordinates.size()));
         }
 
-        if (playerInit1.getShipcounter() == 0){
+        if (player1_shipcoordinates.size() == 0){
             System.out.println("Sorry, you lost");
         }
         else {System.out.println("congratulations, you won");}
