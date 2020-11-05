@@ -1,4 +1,4 @@
-public class Technician {
+abstract class Technician {
 
     //the bank has also a team of technicians at its disposal to fix technical issues
     //in the system and support customers. There are two types of technicians:
