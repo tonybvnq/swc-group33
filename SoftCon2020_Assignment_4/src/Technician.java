@@ -1,15 +1,44 @@
+import java.util.concurrent.TimeUnit;
+
 abstract class Technician {
 
-    //the bank has also a team of technicians at its disposal to fix technical issues
-    //in the system and support customers. There are two types of technicians:
+    private String name;
 
-    // Web-technician: they are in charge of managing the website. Each web-technician
-    // has a name, surname, and unique identification number. The only action they can
-    // perform is to fix the website. This method will wait for 30 seconds, print a message
-    // "reparations complete" and then conclude.
+    private String surname;
 
-    // Backend-technician: they are in charge of managing the backend. They can fix the
-    // back-end. This method will take as parameter the technician ID and print the String
-    // "fixed!" and then conclude
+    private String ID;
 
+    public Technician(String name, String surname, String id) {
+        this.name = name;
+        this.surname = surname;
+        this.ID = id;
+    }
 }
+
+class WebTechnician extends Technician {
+
+        public WebTechnician(String name, String surname, String id) {
+            super(name, surname, id);
+        }
+
+        public void fix_website() throws InterruptedException {
+            try {
+                TimeUnit.SECONDS.sleep(30);
+                System.out.println("reparations complete");
+            } catch (InterruptedException e) {
+                System.err.format("IOException: %s%n", e);
+            }
+        }
+
+    }
+
+class BackendTechnician extends Technician {
+
+        public BackendTechnician(String name, String surname, String id) {
+            super(name, surname, id);
+        }
+
+        public void fix_backend(String ID) {
+            System.out.println("fixed!");
+        }
+    }
