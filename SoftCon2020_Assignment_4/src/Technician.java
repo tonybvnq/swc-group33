@@ -8,6 +8,12 @@ abstract class Technician {
 
     private String ID;
 
+    public String getName() { return name; }
+
+    public String getSurname() { return surname; }
+
+    public String getID() { return ID; }
+
     public Technician(String name, String surname, String id) {
         this.name = name;
         this.surname = surname;
