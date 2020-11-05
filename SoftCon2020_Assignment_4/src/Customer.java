@@ -1,19 +1,14 @@
 public class Customer {
     // name
     private String name;
-
     // surname
     private String surname;
-
     // age
     private int age;
-
     // bank account number
     private int accountNumber;
-
     // savings
     private SavingsAccount savingsAccount;
-
     // unique Identification Number (ID)
     private int UID;
 

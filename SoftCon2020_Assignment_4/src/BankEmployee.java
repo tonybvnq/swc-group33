@@ -35,7 +35,7 @@ class RegularEmployee extends BankEmployee{
 
 class SectionChief extends BankEmployee{
 
-    }
+}
 
     // Main Chief: The main chief can perform all actions of a section chief but they are not
     // assigned to any city. Moreover, they can downgrade a customer from Platinum level
