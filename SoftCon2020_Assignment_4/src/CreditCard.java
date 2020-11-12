@@ -1,12 +1,12 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-
+import java.util.concurrent.ThreadLocalRandom;
 abstract class CreditCard {
 
     // data of the owner
-    private ArrayList ownerData;
+    private String ownerData;
     // serial number
-    private String serialNumber;
+    private int serialNumber;
     // security code of three digits
     private int securityCode;
     // expiration date
@@ -14,10 +14,10 @@ abstract class CreditCard {
     // card limit
     private double cardLimit;
 
-    public ArrayList getOwnerData(){
+    public String getOwnerData(){
         return this.ownerData;
     };
-    public String getSerialNumber(){
+    public int getSerialNumber(){
         return this.serialNumber;
     };
     public int getSecurityCode(){
@@ -30,41 +30,44 @@ abstract class CreditCard {
         return this.cardLimit;
     };
 
-    public void setOwnerData(ArrayList ownerData) { this.ownerData = ownerData; }
-    public void setSerialNumber(String serialNumber) { this.serialNumber = serialNumber;}
-    public void setSecurityCode(int securityCode) { this.securityCode = securityCode;}
+    public void setOwnerData(String ownerData) { this.ownerData = ownerData; }
+    public void setSerialNumber(int serialNumber) { this.serialNumber = serialNumber;}
+    public void setSecurityCode() {
+        this.securityCode = ThreadLocalRandom.current().nextInt(100, 999);}
     public void setExpirationDate(String expirationDate) { this.expirationDate = expirationDate;}
     public void setCardLimit(double cardLimit) { this.cardLimit = cardLimit;}
 }
-    // There are three different types of credit
-    // cards: Regular credit card, Gold credit card, and Platinum credit card
+// There are three different types of credit
+// cards: Regular credit card, Gold credit card, and Platinum credit card
 
 class RegularCard extends CreditCard {
-    public RegularCard(ArrayList ownerData, String serialNumber, int securityCode, String expirationDate){
+    public RegularCard(String ownerData, int serialNumber, String expirationDate){
         setCardLimit(2000);
         setOwnerData(ownerData);
         setSerialNumber(serialNumber);
-        setSecurityCode(securityCode);
+        setSecurityCode();
         setExpirationDate(expirationDate);
     }
 }
 class GoldCard extends CreditCard{
-    public GoldCard(ArrayList ownerData, String serialNumber, int securityCode, String expirationDate){
+    public GoldCard(String ownerData, int serialNumber, String expirationDate){
         setCardLimit(5000);
         setOwnerData(ownerData);
         setSerialNumber(serialNumber);
-        setSecurityCode(securityCode);
+        setSecurityCode();
         setExpirationDate(expirationDate);
     }
 }
 class PlatinumCard extends CreditCard{
-    public PlatinumCard(ArrayList ownerData, String serialNumber, int securityCode, String expirationDate){
+    public PlatinumCard(String ownerData, int serialNumber, String expirationDate){
         setCardLimit(10000);
         setOwnerData(ownerData);
         setSerialNumber(serialNumber);
-        setSecurityCode(securityCode);
+        setSecurityCode();
         setExpirationDate(expirationDate);
     }
+}
+
 }
 
 
