@@ -1,5 +1,7 @@
 public class Customer {
     // name
+    public static int serialnr = 0;
+
     private String name;
 
     // surname
@@ -49,12 +51,16 @@ public class Customer {
     }
     public void setCreditCard(){
             if(this.getCurrentLevel() == customerLevel.Regular ){
-                this.creditCard = new RegularCard();
+                this.creditCard = new RegularCard(this.getFullName(), this.getSerialnr(), "01/01/2022");
             }
             else if (this.getCurrentLevel() == customerLevel.Gold ){
-                this.creditCard = new GoldCard();
+                this.creditCard = new GoldCard(this.getFullName(), this.getSerialnr(),  "01/01/2022");
             }
-            else {this.creditCard = new PlatinumCard();}
+            else {this.creditCard = new PlatinumCard(this.getFullName(), this.getSerialnr(), "01/01/2022");}
+    }
+    public int getSerialnr(){
+        Customer.serialnr += 1;
+        return serialnr;
     }
 
 
@@ -87,29 +93,21 @@ public class Customer {
     // 10000 CHF by credit card per transaction. Payments with bank transfer do
     // not have an amount limit.
 
-    public void deposit(int money){
-        this.getSavingsAccount().addMoney(money);
+    public void deposit(float money){
+        this.getSavingsAccount().deposit(money);
     }
 
-    public int withdraw(int money){
-        if (money > this.getSavingsAccount().getAmount()){
-            System.out.println("NOT ENOUGH MONEY ON ACCOUNT");
-            return 0;}
-        else(this.getSavingsAccount().removeMoney(money));
+    public float withdraw(float money) throws Exception {
+        this.getSavingsAccount().withdraw(money);
         return money;
     }
 
-    void payFromAccount(int money){
-        if (money > this.getSavingsAccount().getAmount()){
-        System.out.println("NOT ENOUGH MONEY ON ACCOUNT");}
-        else(this.getSavingsAccount().removeMoney(money));
+    void payFromAccount(float money) throws Exception {
+       {this.getSavingsAccount().withdraw(money);};
     }
 
-    void payWithCard(int money){
-        if (money > this.getCreditCard().getCardLimit){
-            System.out.println("CARDLIMIT IS TO LOW TO PAY THIS PRICE");
-        }
-        else(this.getCreditCard().remove(money));
+    void payWithCard(float money) throws Exception {
+        {this.getSavingsAccount().creditCardPayment(money, this);};
     }
 
 }
