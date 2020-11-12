@@ -9,21 +9,32 @@ class TechnicianTest {
 
     @Test
     void getName() {
-        assertEquals(Peter.getName(), "Peter");
-        assertEquals(Homer.getName(), "Homer");
+        assertEquals("Peter", Peter.getName());
+        assertEquals("Homer", Homer.getName());
 
     }
 
     @Test
     void getSurname() {
-        assertEquals(Peter.getSurname(), "Griffin");
-        assertEquals(Homer.getSurname(), "Simpson");
+        assertEquals("Griffin", Peter.getSurname() );
+        assertEquals("Simpson", Homer.getSurname());
     }
 
     @Test
     void getID() {
-        assertEquals(Peter.getID(), 1);
-        assertEquals(Homer.getID(), 2);
+        assertEquals(1, Peter.getID());
+        assertEquals(2, Homer.getID());
+    }
+
+}
+
+class WebTechnicianTest {
+
+    WebTechnician Jens = new WebTechnician("Knossala", "Simpson", 2);
+
+    @Test
+    void fix_website() {
+
     }
 
 }

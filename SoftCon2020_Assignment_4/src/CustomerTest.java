@@ -7,55 +7,53 @@ class CustomerTest {
     Customer Sebastian = new Customer("Sebastian", "Vettel", 33, 12345, 445344);
     SavingsAccount main = new SavingsAccount();
 
-
     @Test
     void getFullName() {
-        assertEquals(Sebastian.getFullName(), "Sebastian Vettel");
+        assertEquals("Sebastian Vettel", Sebastian.getFullName());
     }
 
     @Test
     void getAge() {
-        assertEquals(Sebastian.getAge(), 33);
+        assertEquals(33, Sebastian.getAge());
     }
 
     @Test
     void getAccountNumber() {
-        assertEquals(Sebastian.getAccountNumber(), 12345);
+        assertEquals(12345, Sebastian.getAccountNumber());
     }
 
     @Test
     void getSavingsAccount() {
-
         Sebastian.setSavingsAccount(main);
-        assertEquals(Sebastian.getSavingsAccount(), main);
+        assertEquals(main, Sebastian.getSavingsAccount());
     }
 
     @Test
     void getUID() {
-        assertEquals(Sebastian.getUID(), 445344);
+        assertEquals(445344, Sebastian.getUID());
     }
 
     @Test
     void getCurrentLevel() {
-        assertEquals(Sebastian.getCurrentLevel(), Customer.customerLevel.Regular);
+        assertEquals(Customer.customerLevel.Regular, Sebastian.getCurrentLevel());
 
     }
 
     @Test
     void getSerialnr() {
-        assertEquals(Sebastian.getSerialnr(), 1);
+        assertEquals(1, Sebastian.getSerialnr());
     }
 
     @Test
     void deposit() {
         Sebastian.deposit(420);
-        assertEquals(main.getBalance(), 420);
+        assertEquals(420, main.getBalance());
     }
 
     @Test
     void withdraw() throws Exception {
         Sebastian.deposit(420);
         Sebastian.withdraw(120);
-        assertEquals(main.getBalance(), 300);
+        assertEquals(300, main.getBalance());
     }
 }
