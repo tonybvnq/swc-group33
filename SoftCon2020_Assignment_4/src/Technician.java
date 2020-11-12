@@ -6,15 +6,15 @@ abstract class Technician {
 
     private String surname;
 
-    private String ID;
+    private int ID;
 
     public String getName() { return name; }
 
     public String getSurname() { return surname; }
 
-    public String getID() { return ID; }
+    public int getID() { return ID; }
 
-    public Technician(String name, String surname, String id) {
+    public Technician(String name, String surname, int id) {
         this.name = name;
         this.surname = surname;
         this.ID = id;
@@ -23,7 +23,7 @@ abstract class Technician {
 
 class WebTechnician extends Technician {
 
-        public WebTechnician(String name, String surname, String id) {
+        public WebTechnician(String name, String surname, int id) {
             super(name, surname, id);
         }
 
@@ -40,7 +40,7 @@ class WebTechnician extends Technician {
 
 class BackendTechnician extends Technician {
 
-        public BackendTechnician(String name, String surname, String id) {
+        public BackendTechnician(String name, String surname, int id) {
             super(name, surname, id);
         }
 
