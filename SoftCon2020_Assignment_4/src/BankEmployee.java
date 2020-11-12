@@ -4,19 +4,48 @@ abstract class BankEmployee {
 
     // bank employees supervise all the operations in the bank. Each employee
     //name
-    private static String name;
+    private String name;
 
     // surname
-    private static String surname;
+    private String surname;
 
     // identification number
-    private static String ID;
+    private String ID;
 
     // list of customers assigned to them
-    private static ArrayList customerList;
+    private  ArrayList customerList = new ArrayList();
+
+
+
+    // SETTERS AND GETTERS
+    public void setName(String name) { this.name = name; }
+    public  void setSurname(String surname) { this.surname = surname; }
+    public void setID(String ID) { this.ID = ID; }
+
+    public String getFullName(){ return this.surname + " " + this.name; }
+    public String getID(){return this.ID;}
+
+
+    // CUSTOMERLIST OPERATIONS
+    public void addCustomer(Customer customer){
+        this.customerList.add(customer);
+    }
+
+    public void removeCustomer(Customer customer){
+        this.customerList.remove(customer);
+    }
+
+    public boolean customerIsinList(Customer customer){
+        return this.customerList.contains(customer);
+    }
 
 
     //can upgrade a customer from Regular level to Golden level given the Customer ID.
+    public void upgradeRegularToGold(Customer customer){
+        customer.setcustomerLevel(Customer.customerLevel.Gold);
+        customer.setCreditCard();
+
+    }
 
 }
     //Employees are divided in three levels:
@@ -24,6 +53,12 @@ abstract class BankEmployee {
     // Regular employee: they do not have any special characteristic.
 
 class RegularEmployee extends BankEmployee{
+
+    public RegularEmployee(String surname, String name, String ID){
+        this.setSurname(surname);
+        this.setName(name);
+        this.setID(ID);
+    }
 
 }
 
@@ -35,6 +70,33 @@ class RegularEmployee extends BankEmployee{
 
 class SectionChief extends BankEmployee{
 
+    private String city;
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCity(){
+        return this.city;
+    }
+
+    public SectionChief(String surname, String name, String ID, String city){
+        this.setSurname(surname);
+        this.setName(name);
+        this.setID(ID);
+        this.setCity(city);
+    }
+
+    // CAM  UPGRADE GOLT TO PLATIN AND DOWNGRADE GOLD TO REGULAR
+    public void upgradeGoldToPlatinum(Customer customer){
+        customer.setcustomerLevel(Customer.customerLevel.Platinum);
+        customer.setCreditCard();
+    }
+
+    public void downgradeGoldToRegular(Customer customer){
+        customer.setcustomerLevel(Customer.customerLevel.Regular);
+        customer.setCreditCard();
+    }
 }
 
     // Main Chief: The main chief can perform all actions of a section chief but they are not
@@ -42,6 +104,36 @@ class SectionChief extends BankEmployee{
     // to any previous level (Golden or Regular).
 
 class MainChief extends BankEmployee{
+
+    public MainChief(String surname, String name, String ID, String city){
+        this.setSurname(surname);
+        this.setName(name);
+        this.setID(ID);}
+
+
+    // CAM  UPGRADE GOLT TO PLATIN AND DOWNGRADE GOLD TO REGULAR
+    // CAN DOWNGRADE PLATIN TO ANYTHING
+    public void upgradeGoldToPlatinum(Customer customer){
+        customer.setcustomerLevel(Customer.customerLevel.Platinum);
+        customer.setCreditCard();
+    }
+
+    public void downgradeGoldToRegular(Customer customer){
+        customer.setcustomerLevel(Customer.customerLevel.Regular);
+        customer.setCreditCard();
+    }
+
+    public void downgradePlatinumToGold(Customer customer){
+        customer.setcustomerLevel(Customer.customerLevel.Regular);
+        customer.setCreditCard();
+    }
+
+    public void downgradePlatinumToRegular(Customer customer){
+        customer.setcustomerLevel(Customer.customerLevel.Regular);
+        customer.setCreditCard();
+    }
+
+
 
 }
 
