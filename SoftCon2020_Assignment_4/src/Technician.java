@@ -27,12 +27,13 @@ class WebTechnician extends Technician {
             super(name, surname, id);
         }
 
-        public void fix_website() throws InterruptedException {
+        public String fix_website() throws InterruptedException {
             try {
                 TimeUnit.SECONDS.sleep(30);
-                System.out.println("reparations complete");
+                return "reparations complete";
             } catch (InterruptedException e) {
                 System.err.format("IOException: %s%n", e);
+                return null;
             }
         }
 
