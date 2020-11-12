@@ -24,6 +24,9 @@ abstract class BankEmployee {
 
     public String getFullName(){ return this.surname + " " + this.name; }
     public String getID(){return this.ID;}
+    public ArrayList getCustomerList(){
+        return this.customerList;
+    }
 
 
     // CUSTOMERLIST OPERATIONS
@@ -36,14 +39,18 @@ abstract class BankEmployee {
     }
 
     public boolean customerIsinList(Customer customer){
-        return this.customerList.contains(customer);
+        return this.getCustomerList().contains(customer);
     }
 
 
     //can upgrade a customer from Regular level to Golden level given the Customer ID.
     public void upgradeRegularToGold(Customer customer){
+        if (customer.getCurrentLevel() != Customer.customerLevel.Regular){
+            System.out.println("Customer is not RegularLevel");
+        }
+        else{
         customer.setcustomerLevel(Customer.customerLevel.Gold);
-        customer.setCreditCard();
+        customer.setCreditCard();}
 
     }
 
@@ -89,13 +96,20 @@ class SectionChief extends BankEmployee{
 
     // CAM  UPGRADE GOLT TO PLATIN AND DOWNGRADE GOLD TO REGULAR
     public void upgradeGoldToPlatinum(Customer customer){
+        if (customer.getCurrentLevel() != Customer.customerLevel.Gold){
+            System.out.println("Customer is not Goldlevel");
+        }
+        else{
         customer.setcustomerLevel(Customer.customerLevel.Platinum);
-        customer.setCreditCard();
+        customer.setCreditCard();}
     }
 
     public void downgradeGoldToRegular(Customer customer){
-        customer.setcustomerLevel(Customer.customerLevel.Regular);
-        customer.setCreditCard();
+        if (customer.getCurrentLevel() != Customer.customerLevel.Gold){
+            System.out.println("Customer is not Goldlevel");
+        }
+        else{customer.setcustomerLevel(Customer.customerLevel.Regular);
+        customer.setCreditCard();}
     }
 }
 
@@ -105,7 +119,7 @@ class SectionChief extends BankEmployee{
 
 class MainChief extends BankEmployee{
 
-    public MainChief(String surname, String name, String ID, String city){
+    public MainChief(String surname, String name, String ID){
         this.setSurname(surname);
         this.setName(name);
         this.setID(ID);}
@@ -114,28 +128,44 @@ class MainChief extends BankEmployee{
     // CAM  UPGRADE GOLT TO PLATIN AND DOWNGRADE GOLD TO REGULAR
     // CAN DOWNGRADE PLATIN TO ANYTHING
     public void upgradeGoldToPlatinum(Customer customer){
+        if (customer.getCurrentLevel() != Customer.customerLevel.Gold){
+            System.out.println("Customer is not Goldlevel");
+        }
+        else{
         customer.setcustomerLevel(Customer.customerLevel.Platinum);
-        customer.setCreditCard();
+        customer.setCreditCard();}
     }
 
     public void downgradeGoldToRegular(Customer customer){
+        if (customer.getCurrentLevel() != Customer.customerLevel.Gold){
+            System.out.println("Customer is not Goldlevel");
+        }
+        else{
         customer.setcustomerLevel(Customer.customerLevel.Regular);
-        customer.setCreditCard();
+        customer.setCreditCard();}
     }
 
     public void downgradePlatinumToGold(Customer customer){
-        customer.setcustomerLevel(Customer.customerLevel.Regular);
-        customer.setCreditCard();
+        if (customer.getCurrentLevel() != Customer.customerLevel.Platinum){
+            System.out.println("Customer is not PlatinumLevel");
+        }
+        else{
+        customer.setcustomerLevel(Customer.customerLevel.Gold);
+        customer.setCreditCard();}
     }
 
     public void downgradePlatinumToRegular(Customer customer){
+        if (customer.getCurrentLevel() != Customer.customerLevel.Platinum){
+            System.out.println("Customer is not PlatinumLevel");
+        }
+        else{
         customer.setcustomerLevel(Customer.customerLevel.Regular);
-        customer.setCreditCard();
+        customer.setCreditCard();}
     }
 
-
-
 }
+
+
 
 
 
