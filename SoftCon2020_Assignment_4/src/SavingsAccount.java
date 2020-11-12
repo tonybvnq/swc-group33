@@ -1,10 +1,10 @@
 public class SavingsAccount {
 
-    private float balance = 0;
     public float getBalance() {
         return balance;
     }
 
+    private float balance = 0;
     // Depositing money simply adds the sum of money deposited to the customer's
     // savings.
     public void deposit(float amount){
