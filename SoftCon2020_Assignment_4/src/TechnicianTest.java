@@ -42,7 +42,7 @@ class TechnicianTest {
 
 class WebTechnicianTest {
 
-    WebTechnician Jens = new WebTechnician("Knossala", "Simpson", 2);
+    WebTechnician Jens = new WebTechnician("Jens", "Knossala", 1);
 
     /**
      * fix_website prints "reparations complete"
@@ -51,6 +51,21 @@ class WebTechnicianTest {
     @Test
     void fix_website() throws InterruptedException {
         assertEquals("reparations complete", Jens.fix_website());
+    }
+
+}
+
+class BackendTechnicianTest {
+
+    BackendTechnician Hans = new BackendTechnician("Hans", "Muster", 1);
+
+    /**
+     * fix_backend prints "fixed!"
+     * @throws AssertionError when it the print is different
+     */
+    @Test
+    void fix_backend(String id) {
+        assertEquals("fixed!", Hans.fix_backend(1));
     }
 
 }

@@ -45,7 +45,7 @@ class BackendTechnician extends Technician {
             super(name, surname, id);
         }
 
-        public void fix_backend(String ID) {
-            System.out.println("fixed!");
+        public String fix_backend(int ID) {
+            return "fixed!";
         }
     }
