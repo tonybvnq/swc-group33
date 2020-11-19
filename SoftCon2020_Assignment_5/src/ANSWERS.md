@@ -6,3 +6,6 @@ The offices are designed using the Composite design pattern, where the bakeries 
 
 Products (Sandwich, Cake)
 The products can be enhanced with the different toppings, this is designed using the Decorator design pattern.
+
+For the sandwich and cake classes a decorator design pattern is used. Like this it is always easy to add and remove ingridients without having to change the code.
+For this, sandwich and cake are implmentet as intefaces while having an abstract decorator class each, which implements specific the interface and is extended into the ingredients.
