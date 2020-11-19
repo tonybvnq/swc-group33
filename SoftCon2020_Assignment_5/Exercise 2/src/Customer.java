@@ -10,7 +10,7 @@ public class Customer {
         System.out.println(cartype.getName() + "; "
                 + cartype.getSpace() + "; "
                 + cartype.getSpeed() + "; "
-                + cartype.getPrice);
+                + cartype.getPrice());
     }
 
 }
