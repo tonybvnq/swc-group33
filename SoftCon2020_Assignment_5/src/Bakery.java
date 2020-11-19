@@ -50,6 +50,9 @@ abstract class Bakery {
         this.cityName = cityName;
     }
 
+    /**
+     * Prints the name of the bakery in the terminal
+     */
     public void printName(){
         System.out.println(bakeryName);
     }
