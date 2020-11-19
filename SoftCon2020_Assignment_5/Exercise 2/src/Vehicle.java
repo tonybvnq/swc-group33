@@ -1,2 +1,3 @@
-public class Vehicle {
+abstract class Vehicle {
+
 }
