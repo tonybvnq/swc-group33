@@ -1,3 +1,7 @@
+/**
+ * Abstract base class for the bakeries
+ */
+
 abstract class Bakery {
     boolean isBread;
     boolean isSweets;
@@ -59,7 +63,9 @@ abstract class Bakery {
 
 
 }
-
+/**
+ * Normal bakery extending the bakery abstract class
+ */
 class NormalBakery extends Bakery{
     public NormalBakery(String bakeryName, String streetName, int streetNumber, int postalCode, String cityName){
         this.setBakeryName(bakeryName);
@@ -72,7 +78,9 @@ class NormalBakery extends Bakery{
         this.setSweets(true);
     }
 }
-
+/**
+ * Bread bakery extending the bakery abstract class
+ */
 class BreadBakery extends Bakery{
     public BreadBakery(String bakeryName, String streetName, int streetNumber, int postalCode, String cityName){
         this.setBakeryName(bakeryName);
@@ -85,7 +93,9 @@ class BreadBakery extends Bakery{
         this.setSweets(false);
     }
 }
-
+/**
+ * Sweets bakery extending the bakery abstract class
+ */
 class SweetsBakery extends Bakery{
     public SweetsBakery(String bakeryName, String streetName, int streetNumber, int postalCode, String cityName){
         this.setBakeryName(bakeryName);
