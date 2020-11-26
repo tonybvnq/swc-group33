@@ -1,4 +1,6 @@
-
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Customers have a specific car type and a method to print the car type's name, space, speed and price
@@ -10,17 +12,26 @@ public class Customer {
     public Vehicle getVehicle() {
         return vehicle;
     }
+    private List<String> list = Arrays.asList("Bus", "FamilyCar", "MicroCar", "Supercar");
 
     /**
      * Customers have a specific car type and a method to print the car type's name, space, speed and price
      */
     public Customer(String vehicletype) {
         this.vehicletype = vehicletype;
-        switch (vehicletype) {
-            case "Bus" -> vehicle = new Bus();
-            case "FamilyCar" -> vehicle = new FamilyCar();
-            case "MicroCar" -> vehicle = new MicroCar();
-            case "Supercar" -> vehicle = new Supercar();
+
+        if (list.contains(vehicletype)) {
+            switch (vehicletype) {
+                case "Bus" -> vehicle = new Bus();
+                case "FamilyCar" -> vehicle = new FamilyCar();
+                case "MicroCar" -> vehicle = new MicroCar();
+                case "Supercar" -> vehicle = new Supercar();
+            }
+        }
+
+        else {
+            System.out.println("This vehicle type is not available");
+            throw new NullPointerException();
         }
     }
 
