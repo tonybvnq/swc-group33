@@ -1,4 +1,4 @@
-import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.NullString;
+
 
 /**
  * Customers have a specific car type and a method to print the car type's name, space, speed and price
