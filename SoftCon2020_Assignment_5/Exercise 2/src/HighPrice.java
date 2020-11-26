@@ -1,2 +1,2 @@
-public class HighPrice {
+public class HighPrice implements Price {
 }

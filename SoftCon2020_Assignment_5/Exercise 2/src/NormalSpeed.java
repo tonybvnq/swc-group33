@@ -1,2 +1,2 @@
-public class NormalSpeed {
+public class NormalSpeed implements Speed {
 }

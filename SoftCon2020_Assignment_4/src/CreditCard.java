@@ -14,6 +14,7 @@ abstract class CreditCard {
     // card limit
     private double cardLimit;
 
+
     public String getOwnerData(){
         return this.ownerData;
     };
@@ -68,7 +69,7 @@ class PlatinumCard extends CreditCard{
     }
 }
 
-}
+
 
 
 

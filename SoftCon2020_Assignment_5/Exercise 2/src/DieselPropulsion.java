@@ -1,2 +1,2 @@
-public class DieselPropulsion {
+public class DieselPropulsion implements Propulsion{
 }
