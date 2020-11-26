@@ -1,3 +1,5 @@
+import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.NullString;
+
 /**
  * Customers have a specific car type and a method to print the car type's name, space, speed and price
  */
@@ -24,12 +26,17 @@ public class Customer {
 
      /**
      * Prints the name, space, speed and price of the specific car type
-     */ 
-    public void ride(){
+      * @return
+      */
+    public String ride(){
         System.out.println(vehicletype + "; "
                 + vehicle.room.getRoom() + "; "
                 + vehicle.speed.getSpeed() + "; "
                 + vehicle.price.getPrice());
+        return vehicletype + "; "
+                + vehicle.room.getRoom() + "; "
+                + vehicle.speed.getSpeed() + "; "
+                + vehicle.price.getPrice();
     }
 
 }
