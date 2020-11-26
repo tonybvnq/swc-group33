@@ -1,57 +1,69 @@
 import java.util.*;
-
 abstract class Vehicle {
-    private Price price;
-    private Propulsion propulsion;
-    private Room room;
-    private Speed speed;
+    String vehicleName;
+    Price price;
+    Propulsion propulsion;
+    Room room;
+    Speed speed;
 
-    public void setPrice(Price price){
-        this.price = price;
+    public Price getPrice() {
+        return price;
     }
-    public void setPropulsion(Propulsion propulsion){
-        this.propulsion = propulsion;
+
+    public Propulsion getPropulsion() {
+        return propulsion;
     }
-    public void setRoom(Room room){
-        this.room = room;
+
+    public Room getRoom() {
+        return room;
     }
-    public void setSpeed(Speed speed){
-        this.speed = speed;
+
+    public Speed getSpeed() {
+        return speed;
     }
+
+    public String getVehicleName(){
+        return vehicleName;
+    }
+
+
+
+
 }
 
 class MicroCar extends Vehicle{
     public MicroCar(){
-        this.setPrice(CheapPrice);
-        this.setPropulsion(ElectricPropulsion);
-        this.setRoom();
-        this.setSpeed(NormalSpeed);
+        vehicleName = "MicroCar";
+        price = new CheapPrice();
+        propulsion = new ElectricPropulsion();
+        room = new OneSmall();
+        speed = new NormalSpeed();
     }
 }
-
 class FamilyCar extends Vehicle{
     public FamilyCar(){
-        this.setPrice(MiddlePrice);
-        this.setPropulsion(GasolinePropulsion);
-        this.setRoom();
-        this.setSpeed(NormalSpeed);
+        vehicleName = "FamilyCar";
+        price = new MiddlePrice();
+        propulsion = new GasolinePropulsion();
+        room = new TwoSmallTwoLarge();
+        speed = new NormalSpeed();
     }
 }
-
 class Supercar extends Vehicle{
-    public Supercar(){
-        this.setPrice(HighPrice);
-        this.setPropulsion(GasolinePropulsion);
-        this.setRoom();
-        this.setSpeed(FastSpeed);
+    public Supercar() {
+        vehicleName = "Supercar";
+        price = new HighPrice();
+        propulsion = new GasolinePropulsion();
+        room = new OneSmallOneLarge();
+        speed = new FastSpeed();
     }
 }
-
 class Bus extends Vehicle{
     public Bus(){
-        this.setPrice(CheapPrice);
-        this.setPropulsion(DieselPropulsion);
-        this.setRoom();
-        this.setSpeed(SlowSpeed);
+        vehicleName = "Bus";
+        price = new BusPrice();
+        propulsion = new DieselPropulsion();
+        room = new AnySize();
+        speed = new SlowSpeed();
     }
 }

@@ -26,9 +26,9 @@ public class Customer {
      */ 
     public void ride(){
         System.out.println(vehicletype + "; "
-                + vehicle.getRoom() + "; "
-                + vehicle.getSpeed() + "; "
-                + vehicle.getPrice());
+                + vehicle.room.getRoom() + "; "
+                + vehicle.speed.getSpeed() + "; "
+                + vehicle.price.getPrice());
     }
 
 }
