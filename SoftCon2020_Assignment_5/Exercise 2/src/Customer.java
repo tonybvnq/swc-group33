@@ -9,7 +9,6 @@ public class Customer {
         return vehicle;
     }
 
-    
     /**
      * Customers have a specific car type and a method to print the car type's name, space, speed and price
      */
@@ -21,7 +20,6 @@ public class Customer {
             case "MicroCar" -> vehicle = new MicroCar();
             case "Supercar" -> vehicle = new Supercar();
         }
-
     }
 
      /**
@@ -29,9 +27,9 @@ public class Customer {
      */ 
     public void ride(){
         System.out.println(vehicletype + "; "
-                + vehicle.getRoom() + "; "
-                + vehicle.getSpeed() + "; "
-                + vehicle.getPrice());
+                + vehicle.room.getRoom() + "; "
+                + vehicle.speed.getSpeed() + "; "
+                + vehicle.price.getPrice());
     }
 
 }
