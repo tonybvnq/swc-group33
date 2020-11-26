@@ -7,6 +7,6 @@
 public class BasicSandwich implements Sandwich{
     @Override
     public double getCost() {
-        return 0;
+        return 2;
     }
 }
