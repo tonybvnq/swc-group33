@@ -3,9 +3,12 @@
  */
 public class Customer {
     private String vehicletype;
-    public String getCartype() {return vehicletype; }
-    Vehicle vehicle;
-    
+    private Vehicle vehicle;
+    public String getVehicletype() { return vehicletype; }
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
     
     /**
      * Customers have a specific car type and a method to print the car type's name, space, speed and price
@@ -26,9 +29,9 @@ public class Customer {
      */ 
     public void ride(){
         System.out.println(vehicletype + "; "
-                + vehicle.room.getRoom() + "; "
-                + vehicle.speed.getSpeed() + "; "
-                + vehicle.price.getPrice());
+                + vehicle.getRoom() + "; "
+                + vehicle.getSpeed() + "; "
+                + vehicle.getPrice());
     }
 
 }
