@@ -30,7 +30,7 @@ public class Customer {
         }
 
         else {
-            System.out.println("This vehicle type is not available");
+            //System.out.println("This vehicle type is not available");
             throw new NullPointerException();
         }
     }

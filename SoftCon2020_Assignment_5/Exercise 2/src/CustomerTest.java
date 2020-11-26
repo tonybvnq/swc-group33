@@ -44,3 +44,16 @@ class CustomerFamilyCarTest {
         assertEquals("FamilyCar; Two small two large; normal speed; 15 CHF/h",customer.ride());
     }
 }
+
+/**
+    Tests for unavailable input.
+    @throws NullPointerException if the cartype is not available
+     */
+class CustomerBatmobileTest {
+
+
+    @org.junit.jupiter.api.Test
+    void ride() {
+        assertThrows(NullPointerException.class, () ->{Customer customer = new Customer("Batmobile");});
+    }
+}
