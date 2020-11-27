@@ -1,8 +1,8 @@
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Creates 4 different customers to test each vehicle and compares ride output to expected value
- */
+ * Creates 4 different customers to test each vehicle and compares ride output to expected value, and one customer with an invalid vehicle to test nullpointer exception
+ *
 
 
 class CustomerBusTest {
