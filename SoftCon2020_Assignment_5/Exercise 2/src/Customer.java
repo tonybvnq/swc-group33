@@ -13,6 +13,7 @@ public class Customer {
         return vehicle;
     }
     private List<String> list = Arrays.asList("Bus", "FamilyCar", "MicroCar", "Supercar");
+    public List<String> getList() { return list; }
 
     /**
      * Customers have a specific car type and a method to print the car type's name, space, speed and price
