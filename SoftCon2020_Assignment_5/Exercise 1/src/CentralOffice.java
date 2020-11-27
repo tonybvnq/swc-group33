@@ -32,6 +32,7 @@ public class CentralOffice {
     */
     public void printAllOffices() {
         for (CityOffice cityoffice : allOffices) {
+            System.out.println(cityoffice);
             cityoffice.printAllBakeriesNames();
         }
     }
