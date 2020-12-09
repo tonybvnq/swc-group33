@@ -2,13 +2,20 @@
  * Model Class
  * name, a surname, an address, a telephone number and a unique ID number (a sequence of 8 characters or numbers)
  */
-
-public class Employee {
+public class Employee{
     String name;
     String surname;
     String address;
     String telephoneNumber;
     String uniqueID;
+
+    public Employee(String name, String surname, String address, String telephoneNumber, String uniqueID){
+        this.setName(name);
+        this.setSurname(surname);
+        this.setAddress(address);
+        this.setTelephoneNumber(telephoneNumber);
+        this.setUniqueID(uniqueID);
+    }
 
     public String getName() {
         return name;
