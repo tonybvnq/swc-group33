@@ -8,3 +8,4 @@ Testing class:      MVCPatternDemo.java
 The MVCPatternDemo acts as a client and only calls the View class. 
 The View class then either calls the Model directy (if it only needs to read info) or calls the Controller (if it wants to update something on the Model).
 
+![alt text](UML Ex2.jpg "Class UML Diagram of TZ package")
