@@ -11,4 +11,4 @@ The View class then either calls the Model directy (if it only needs to read inf
 ![alt text](UMLEx1.jpg "Class UML Diagram")
 
 
-![alt text](UML Assignment 6.jpg "Class UML Diagram")
+![alt text](UML2.jpg "Class UML Diagram")
