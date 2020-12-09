@@ -1,18 +1,28 @@
 public class MVCPatternDemo {
     public static void main(String[] args)  {
+        /**
+         * 1) Create a new employee
+         */
 
+        /**
+         * 2) Print the employee name, surname and ID.
+         */
 
+        /**
+         * 3) Update the employee address
+         */
 
+        /**
+         * 4) Print the new address
+         */
 
-        Employee employee1 = new Employee();
+        /**
+         * 5) Update the employee phone number
+         */
 
-        employee1.setName("John");
-        employee1.setSurname("Doe");
-        employee1.setAddress("Test Street 123");
-        employee1.setTelephoneNumber("+41 41 000 00 00");
-        employee1.setUniqueID("12345678");
-
-
+        /**
+         * 6) Print the new phone number
+         */
 
 
     }
